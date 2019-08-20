@@ -57,9 +57,7 @@ class NavBar extends Component {
                             <li className="nav-item active">
                                 <Link className="nav-link" to="/">Home</Link>
                             </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to={'/leagues'}>Leagues</Link>
-                            </li>
+
                             <li className="nav-item">
                                 <Link className="nav-link" to={'/login'}>Login</Link>
                             </li>

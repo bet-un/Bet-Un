@@ -39,7 +39,7 @@ class App extends Component {
         <>
           <NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
           <Switch>
-            <Route path="/leagues" exact component={LeagueList} />
+
           </Switch>
         </>
       );
@@ -49,7 +49,6 @@ class App extends Component {
           <NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
 
           <Switch>
-            <Route path="/leagues" exact component={LeagueList} />
             <Route path="/signup" exact render={match => <Signup {...match} setUser={this.setTheUser} />} />
             <Route path="/login" exact render={match => <Login {...match} setUser={this.setTheUser} />} />
           </Switch>
