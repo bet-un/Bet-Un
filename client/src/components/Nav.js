@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
 import AuthServices from '../services/auth.services'
-
 
 
 class NavBar extends Component {
@@ -37,7 +35,8 @@ class NavBar extends Component {
                                 <Link className="nav-link" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to={'/leagues'}>Leagues</Link>
+                                <Link to={`/LigaSantander`} className="navbar-brand mb-0 h1">Liga Santander</Link>
+                                <Link to={`/Clubs`} className="navbar-brand mb-0 h1">Clubs</Link>
                             </li>
                             <li className="nav-item"><span className="nav-link">Bienvenid@, {saludo}</span></li>
                             <li className="nav-item" onClick={this.logout}><span className="nav-link" >Cerrar sesión</span></li>
