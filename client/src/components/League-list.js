@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Services from '../services/league.services'
 
-import LeagueCard from './League-card'
+//import LeagueCard from './League-card'
 
 
 
@@ -25,14 +25,14 @@ class LeagueList extends Component {
                 <div className="container">
                     <h1>Listado de ligas</h1>
                     <div className="row">
-                        {this.state.leagues && console.log(this.state.leagues)}
+                        {this.state.leagues && console.log(true)}
                     </div>
                 </div>
             </>
         )
     }
 }
-{/* <LeagueCard key={leagues.league_id} {...leagues}/> */}
+
 
 export default LeagueList
 
@@ -58,15 +58,15 @@ export default LeagueList
 //     }
 //     render() {
 //         return (
-           
+
 //             <>
 //             <h1>Soy el componente de leagues</h1>
 //             {/* {this.state.leagues.map(leagues => <LeagueCard />)} */}
 //             </>
-           
+
 //         )
 //     }
-    
+
 // }
 
 

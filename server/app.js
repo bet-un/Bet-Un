@@ -6,9 +6,17 @@ const express = require('express');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const path = require('path');
+const cors = require('cors');
+const mongoose = require('mongoose');
+
+
+
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session);
+const passport = require('passport')
 
 require('./configs/mongoose.config')
-
+require('./configs/passport.config')
 
 
 const app_name = require('./package.json').name;
@@ -23,14 +31,31 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // // CORS middleware
-// const whitelist = ['http://localhost:3000']
-// const corsOptions = {
-//   origin: (origin, cb) => {
-//     const originIsWhitelisted = whitelist.includes(origin)
-//     cb(null, originIsWhitelisted)
-//   }
-// }
-// app.use(cors(corsOptions))
+const whitelist = [`http://localhost:3000`]
+const corsOptions = {
+  origin: (origin, cb) => {
+    const originIsWhitelisted = whitelist.includes(origin)
+    cb(null, originIsWhitelisted)
+  },
+  credentials: true
+}
+app.use(cors(corsOptions))
+
+// Configuración de sesión
+app.use(session({
+  secret: 'Whatever',
+  resave: true,
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // Express View engine setup
 
@@ -57,6 +82,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const Index = require('./routes/index')
 app.use('/', Index);
+
+
+const auth = require('./routes/auth.routes')
+app.use('/api', auth);
 
 
 module.exports = app;

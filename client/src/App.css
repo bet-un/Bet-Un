@@ -1,4 +1,6 @@
-
+nav ul,li{
+  list-style-type: none;
+}
 
 /* @keyframes App-logo-spin {
   from {
