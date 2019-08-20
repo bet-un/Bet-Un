@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Services from '../services/league.services'
 //import { Link } from 'react-router-dom'
 
-import LeagueCard from './League-card'
+//import LeagueCard from './League-card'
 
 
 class LeagueList extends Component {
