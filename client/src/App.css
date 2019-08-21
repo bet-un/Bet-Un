@@ -2,6 +2,23 @@ nav ul,li{
   list-style-type: none;
 }
 
+/*Clases generales*/
+.pos{
+  width: 400px;
+  margin: 25px;
+  padding: 20px;
+  border: 2px solid black
+}
+
+.marg-lat{
+  margin-left: 5px;
+  margin-right: 5px
+}
+
+.toast-pos{
+  z-index: 100;
+}
+
 /* Ficha del club */
 .cardClub{
   border: 1px solid black;
