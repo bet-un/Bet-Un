@@ -16,6 +16,7 @@ passport.deserializeUser((userIdFromSession, cb) => {
         }
         cb(null, userDocument);
     });
+    //meter aqui el mongo storage 
 });
 
 passport.use(new LocalStrategy((username, password, next) => {

@@ -29,8 +29,6 @@ class ClubList extends Component {
                     <div className="row">
                         {this.state.clubs && this.state.clubs.map((club, idx) => <ClubCard key={idx} {...club} />)}
                     </div>
-
-
                 </div>
             </>
         )

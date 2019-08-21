@@ -32,14 +32,15 @@ class NavBar extends Component {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item active">
-                                <Link className="nav-link" to="/">Home</Link>
+                                <Link className="navbar-brand mb-0 h1" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to={`/LigaSantander`} className="navbar-brand mb-0 h1">Liga Santander</Link>
                                 <Link to={`/Clubs`} className="navbar-brand mb-0 h1">Clubs</Link>
+                                <Link to={`/Jornada`} className="navbar-brand mb-0 h1">Jornada</Link>
                             </li>
-                            <li className="nav-item"><span className="nav-link">Bienvenid@, {saludo}</span></li>
-                            <li className="nav-item" onClick={this.logout}><span className="nav-link" >Cerrar sesión</span></li>
+                            <li className="nav-item justify-content-right"><span className="nav-link">Bienvenid@, {saludo}</span></li>
+                            <li className="nav-item justify-content-right" onClick={this.logout}><span className="nav-link" >Cerrar sesión</span></li>
 
 
                         </ul>
@@ -54,14 +55,14 @@ class NavBar extends Component {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item active">
-                                <Link className="nav-link" to="/">Home</Link>
+                                <Link className="navbar-brand mb-0 h1" to="/">Home</Link>
                             </li>
 
                             <li className="nav-item">
-                                <Link className="nav-link" to={'/login'}>Login</Link>
+                                <Link className="navbar-brand mb-0 h1" to={'/login'}>Login</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to={'/signup'}>Signup</Link>
+                                <Link className="navbar-brand mb-0 h1" to={'/signup'}>Signup</Link>
                             </li>
 
                         </ul>

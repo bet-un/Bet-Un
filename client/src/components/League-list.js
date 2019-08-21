@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Services from '../services/league.services'
 //import { Link } from 'react-router-dom'
 
-//import LeagueCard from './League-card'
+import LeagueCard from './League-card'
 
 
 class LeagueList extends Component {
@@ -26,6 +26,10 @@ class LeagueList extends Component {
                     <div className="row justify-content-center">
                         <img src="../logo.png" alt="Liga" width="15%"></img>
                     </div>
+                    <select name="liga" class="form-control" id="ligas" defaultValue="468" placeholder="468">
+                        <option value="468">Liga Santander</option>
+                        <option value="148">Premier League</option>
+                    </select>
                     <table className="table">
                         <tbody>
                             <tr>

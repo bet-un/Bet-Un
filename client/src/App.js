@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom'
 
-
-import ClubDetail from './components/Club-detail'
 import AuthServices from './services/auth.services'
 import Signup from './components/auth/Signup'
 import Login from './components/auth/Login'
-
+import Jornada from './components/Jornada'
 import LeagueList from './components/League-list'
 import ClubList from './components/Club-list'
 import NavBar from './components/Nav'
@@ -22,7 +20,7 @@ class App extends Component {
 
   setTheUser = user => {
     this.setState({ loggedInUser: user })
-    console.log(this.state.loggedInUser)
+    //console.log(this.state.loggedInUser)
   }
 
   fetchUser = () => {
@@ -39,18 +37,20 @@ class App extends Component {
 
     if (this.state.loggedInUser) {
       return (
-        <>
+        <div className="back" >
           <NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
+
           <Switch>
             <Route path="/LigaSantander" exact component={LeagueList} />
             <Route path="/Clubs" exact component={ClubList} />
-            <Route path="/details/:players" exact component={ClubDetail} />
+            <Route path="/Jornada" exact component={Jornada} />
+
           </Switch>
-        </>
+        </div>
       );
     } else {
       return (
-        <>
+        <div>
           <NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
 
           <Switch>
@@ -58,7 +58,7 @@ class App extends Component {
             <Route path="/signup" exact render={match => <Signup {...match} setUser={this.setTheUser} />} />
             <Route path="/login" exact render={match => <Login {...match} setUser={this.setTheUser} />} />
           </Switch>
-        </>
+        </div>
       );
     }
   }
