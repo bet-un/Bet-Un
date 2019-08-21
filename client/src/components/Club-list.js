@@ -3,6 +3,7 @@ import Services from '../services/league.services'
 //import { Link } from 'react-router-dom'
 
 import ClubCard from './Club-card'
+import '../App.css';
 
 
 class ClubList extends Component {
@@ -22,7 +23,7 @@ class ClubList extends Component {
 
         return (
             <>
-                <div className="container">
+                <div className="container opacity">
                     <div className="row justify-content-center">
                         <h2>Clubs</h2>
                     </div>

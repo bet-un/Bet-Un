@@ -4,10 +4,12 @@ import { Switch, Route } from 'react-router-dom'
 
 import AuthServices from './services/auth.services'
 
+import Apuesta from './components/Apuesta-list'
 import Jornada from './components/Jornada'
 import LeagueList from './components/League-list'
 import ClubList from './components/Club-list'
 import NavBar from './components/Nav'
+import Video from './components/video'
 
 class App extends Component {
 
@@ -38,11 +40,12 @@ class App extends Component {
       return (
         <div className="back" >
           <NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
-
+          {/* <Video /> */}
           <Switch>
             <Route path="/LigaSantander" exact component={LeagueList} />
             <Route path="/Clubs" exact component={ClubList} />
             <Route path="/Jornada" exact component={Jornada} />
+            <Route path="/Apuesta" exact component={Apuesta} />
 
           </Switch>
         </div>
@@ -51,7 +54,7 @@ class App extends Component {
       return (
         <div>
           <NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
-
+          {/* <Video /> */}
           <Switch>
             {/* <Route path="/signup" exact render={match => <Signup {...match} setUser={this.setTheUser} />} />
             <Route path="/login" exact render={match => <Login {...match} setUser={this.setTheUser} />} /> */}

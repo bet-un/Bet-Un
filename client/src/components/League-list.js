@@ -3,6 +3,8 @@ import Services from '../services/league.services'
 //import { Link } from 'react-router-dom'
 
 import LeagueCard from './League-card'
+import '../App.css';
+
 
 
 class LeagueList extends Component {
@@ -22,9 +24,9 @@ class LeagueList extends Component {
 
         return (
             <>
-                <div className="container">
+                <div className="container opacity">
                     <div className="row justify-content-center">
-                        <img src="../logo.png" alt="Liga" width="15%"></img>
+                        <img src="../laliga-santander-v-1200x1200_2018.png" alt="Liga" width="15%"></img>
                     </div>
                     <select name="liga" class="form-control" id="ligas" defaultValue="468" placeholder="468">
                         <option value="468">Liga Santander</option>

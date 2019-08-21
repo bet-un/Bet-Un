@@ -3,6 +3,11 @@ nav ul,li{
 }
 
 /*Clases generales*/
+.opacity{
+  background-color: white;
+  opacity: .8;
+}
+
 .pos{
   width: 400px;
   margin: 25px;
@@ -29,43 +34,68 @@ nav ul,li{
   flex: 23%
 }
 
-/* .linkBtn{
-  margin-left: 60px;
 
-} */
+/* Apuestas */
+.apuRow{
 
-
-
-/* .App {
-  text-align: center;
+}
+.apu{
+border: 1px solid black;
+border-radius: 10px;
+text-align: center
+}
+.local{
+background-color: rgba(70, 130, 180, .5);
+text-align: center
+}
+.timeM{
+text-align: center
+}
+.visitante{
+background-color: rgba(64, 224, 208, .5);
+text-align: center
+}
+.victoriaL{
+background-color: rgba(70, 130, 180)
+}
+.victoriaV{
+background-color: rgba(64, 224, 208)
+}
+.empate{
+background-color: grey;
+}
+.apuestaya{
+ color: rgba(255, 69, 0)
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+/* VIDEO BACKGROUND */
+.video-header {
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   overflow: hidden;
+   z-index: -100;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.vid {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 100%;
+   height: auto;
+   min-width: 100%;
+   min-height: 100%;
+   -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+       -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
 }
-
-.App-title {
-  font-size: 1.5em;
+@media (max-width: 760px) {
+ .video-header {
+   background: url('./components/campofoto.png') center center / cover no-repeat;
+ }
+ .vid {
+   display: none;
+ }
 }
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.App img{
-  height: 100px;
-  width: 100px;
-} */

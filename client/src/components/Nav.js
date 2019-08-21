@@ -5,6 +5,8 @@ import Signup from '../components/auth/Signup'
 import Login from '../components/auth/Login'
 
 import { Modal, Button } from 'react-bootstrap'
+import '../App.css';
+
 
 class NavBar extends Component {
 
@@ -56,8 +58,9 @@ class NavBar extends Component {
                                 <Link to={`/LigaSantander`} className="navbar-brand mb-0 h1">Liga Santander</Link>
                                 <Link to={`/Clubs`} className="navbar-brand mb-0 h1">Clubs</Link>
                                 <Link to={`/Jornada`} className="navbar-brand mb-0 h1">Jornada</Link>
+                                <Link to={`/Apuesta`} className="navbar-brand mb-1 h1"><h6 className="apuestaya">Apuesta Ya!</h6></Link>
+
                             </li>
-                            <li className="nav-item justify-content-right"><span className="nav-link">Bienvenid@, {saludo}</span></li>
                             <li className="nav-item justify-content-right" onClick={this.logout}><span className="nav-link" >Cerrar sesión</span></li>
 
 
