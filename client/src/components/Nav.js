@@ -44,13 +44,15 @@ class NavBar extends Component {
     render() {
 
         if (this.props.userInSession) {
+            const userName = this.props.userInSession.data.username
+
             return (
 
 
                 <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
-                            <li className="nav-item"><span className="navbar-brand mb-0 h4">Hola de nuevo, {this.props.userInSession.data.username} |</span></li>
+                            <li className="nav-item"><span className="navbar-brand mb-0 h4">Hola de nuevo, {userName} |</span></li>
                             <li className="nav-item active">
                                 <Link className="navbar-brand mb-0 h1" to="/">Home</Link>
                             </li>
@@ -61,7 +63,8 @@ class NavBar extends Component {
                                 <Link to={`/Apuesta`} className="navbar-brand mb-1 h1"><h6 className="apuestaya">Apuesta Ya!</h6></Link>
 
                             </li>
-                            <li className="nav-item justify-content-right" onClick={this.logout}><span className="nav-link" >Cerrar sesión</span></li>
+
+                            <li className="nav-item justify-content-right" onClick={this.logout}><span className="nav-link pointer" >Cerrar sesión</span></li>
 
 
                         </ul>

@@ -20,9 +20,22 @@ nav ul,li{
   margin-right: 5px
 }
 
-.toast-pos{
-  z-index: 100;
+.marg{
+  margin: 15px
 }
+
+.border{
+  border: 1px solid black;
+  text-align: center
+}
+
+.img-marg{
+  margin-bottom: 10px
+}
+
+.pointer {
+  cursor: pointer; 
+ }
 
 /* Ficha del club */
 .cardClub{
@@ -33,6 +46,12 @@ nav ul,li{
   margin: 10px 5px;
   flex: 23%
 }
+
+
+/* .linkBtn{
+  margin-left: 60px;
+
+} */
 
 
 /* Apuestas */

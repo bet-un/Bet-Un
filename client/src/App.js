@@ -56,8 +56,7 @@ class App extends Component {
           <NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
           {/* <Video /> */}
           <Switch>
-            {/* <Route path="/signup" exact render={match => <Signup {...match} setUser={this.setTheUser} />} />
-            <Route path="/login" exact render={match => <Login {...match} setUser={this.setTheUser} />} /> */}
+
           </Switch>
         </div>
       );
