@@ -4,7 +4,7 @@ import '../App.css';
 
 
 const ClubCard = ({ team_name, team_badge, players }) => {
-    (players && players.forEach(name => console.log(name.player_name)))
+
     return (
         <div className="col-3 cardClub">
             <Link to={`/details/${players}`}>

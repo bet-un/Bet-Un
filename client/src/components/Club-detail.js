@@ -14,7 +14,7 @@ class ClubDetail extends Component {
         this.service.getOneClub(this.props.match.params)
             .then(response => this.setState({ detail: response.data }))
             .catch(err => console.log('err', err))
-        console.log(this.state)
+        //console.log(this.state)
     }
 
     render() {
