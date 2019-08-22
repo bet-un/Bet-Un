@@ -9,7 +9,7 @@ const LeagueCard = ({ overall_league_PTS, overall_league_GA, overall_league_GF, 
 
         <tr>
             <th>{overall_league_position}</th>
-            <td><Link to={`/Clubs`}>{team_name}</Link></td>
+            <td><Link className="club-links" to={`/Clubs`}>{team_name}</Link></td>
             <td>{overall_league_payed}</td>
             <td>{overall_league_L}</td>
             <td>{overall_league_W}</td>

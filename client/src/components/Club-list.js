@@ -102,8 +102,6 @@ class ClubList extends Component {
         )
     }
 }
-
-{/* <div key={idx} className="col-md-12"><div className="marg border"><p>{club.team_name}</p><img className="img-marg" src={club.team_badge} alt={club.team_name}></img></div></div> */ }
 export default ClubList
 
 

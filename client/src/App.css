@@ -16,8 +16,8 @@ nav ul,li{
 }
 
 .marg-lat{
-  margin-left: 5px;
-  margin-right: 5px
+  margin-left: 15px;
+  margin-right: 15px
 }
 
 .marg{
@@ -48,6 +48,69 @@ nav ul,li{
   
 }
 
+/* NavBar Links */
+
+.links-nav{
+  color: white;
+}
+
+nav a:visited{
+  text-decoration: none;
+  color: white;
+}
+
+nav a:hover{
+ text-decoration: none;
+ color: grey
+}
+
+/* Menu Links */
+
+/* .links-menu{
+  color: black;
+}
+
+.links-menu-box{
+  border: 1px solid black;
+  width: 10%;
+  font-size: .8em;
+  background-color: white;
+  height: 100vh;
+  position: fixed;
+  left: 0px;
+  top: 10.4%;
+  z-index: 100;
+  
+}
+
+.menu-in{
+    transform: translateX(0);
+}
+
+.menu-out{
+  transform: translateX(-100%);
+  transition: linear .5s;
+}
+
+.links-menu-box a:hover{
+  text-decoration: none;
+  color: grey
+
+} */
+
+/* Club Links */
+
+td a{
+  color: black
+}
+
+td a:visited{
+  text-decoration: none
+}
+
+td a:hover{
+  text-decoration: none;
+}
 
 /* .linkBtn{
   margin-left: 60px;
