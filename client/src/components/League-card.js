@@ -18,8 +18,6 @@ const LeagueCard = ({ overall_league_PTS, overall_league_GA, overall_league_GF, 
             <td>{overall_league_GA}</td>
             <th>{overall_league_PTS}</th>
         </tr>
-
-
     )
 
 }

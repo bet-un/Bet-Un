@@ -9,7 +9,7 @@ import Jornada from './components/Jornada'
 import LeagueList from './components/League-list'
 import ClubList from './components/Club-list'
 import NavBar from './components/Nav'
-import Video from './components/video'
+// import Video from './components/video'
 
 class App extends Component {
 

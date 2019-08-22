@@ -16,6 +16,7 @@ class Apuesta extends Component {
         this.services.getPredictions()
             .then(response => this.setState({ apuesta: response.data }))
             .catch(err => console.log(err))
+
     }
 
     render() {
@@ -27,12 +28,16 @@ class Apuesta extends Component {
                             <tbody>
                                 <tr className="timeM">
                                     <th><p>Local</p></th>
+                                    <th><p>G.L.</p></th>
                                     <th><p>-</p></th>
+                                    <th><p>G.V.</p></th>
                                     <th><p>Visitante</p></th>
                                     <th><p>Hora</p></th>
-                                    <th><p>Victoria Local</p></th>
-                                    <th><p>Victoria Visitante</p></th>
-                                    <th><p>Empate</p></th>
+                                    <th><p>Fecha</p></th>
+                                    <th><p>Estado</p></th>
+                                    <th><p>Prob.V.L.</p></th>
+                                    <th><p>Prob.V.V.</p></th>
+                                    <th><p>Prob.E.</p></th>
                                 </tr>
                                 {this.state.apuesta && this.state.apuesta.map((apuesta, idx) => <ApuestaCard key={idx} {...apuesta} />)}
                             </tbody>

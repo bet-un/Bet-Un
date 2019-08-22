@@ -57,10 +57,10 @@ class NavBar extends Component {
                                 <Link className="navbar-brand mb-0 h1" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to={`/LigaSantander`} className="navbar-brand mb-0 h1">Liga Santander</Link>
+                                <Link to={`/LigaSantander`} className="navbar-brand mb-0 h1">Ligas</Link>
                                 <Link to={`/Clubs`} className="navbar-brand mb-0 h1">Clubs</Link>
                                 <Link to={`/Jornada`} className="navbar-brand mb-0 h1">Jornada</Link>
-                                <Link to={`/Apuesta`} className="navbar-brand mb-1 h1"><h6 className="apuestaya">Apuesta Ya!</h6></Link>
+                                <Link to={`/Apuesta`} className="navbar-brand mb-1 h1">Apuesta Ya!</Link>
 
                             </li>
 

@@ -15,30 +15,34 @@ class ClubList extends Component {
         this.state = {
             clubs: [],
             copy: [],
-            showModal: []
+            showModal: [],
+            liga:""
         }
         this.services = new Services()
     }
 
-    componentDidMount() {
-        this.services.getClubs()
+    // componentDidMount() {
+    //     this.services.getClubs()
+    //         .then(response => this.setState({ clubs: response.data, copy: response.data, showModal: Array(response.data.length - 1).fill(false) }))
+    //         .catch(err => console.log(err))
+    // }
+    handleChangeInput = e => { this.setState({ [e.target.name]: e.target.value }) }
+
+    handleFormSubmit = e => {
+        e.preventDefault()
+        this.services.getClubs(this.state.liga)
             .then(response => this.setState({ clubs: response.data, copy: response.data, showModal: Array(response.data.length - 1).fill(false) }))
             .catch(err => console.log(err))
     }
 
     findProducts = search => {
-
         let copyproducts = [...this.state.copy]
-
         copyproducts = copyproducts.filter(elm => {
             return elm.team_name.toLowerCase().includes(search.toLowerCase())
         })
-
         this.setState({
             clubs: copyproducts
-
         })
-
     }
 
     handleModalModal = (e, index) => {
@@ -59,6 +63,20 @@ class ClubList extends Component {
                         <h2>Clubs</h2>
                     </div>
                     <SearchBar findProducts={this.findProducts} />
+                    <form onSubmit={this.handleFormSubmit}>
+                        <div className="form-group linea">
+                            <label htmlFor="ligas"></label>
+                            <select name="liga" className="form-control" id="ligas" value={this.state.liga} onChange={this.handleChangeInput}>
+                                <option></option>
+                                <option value="468">Liga Santander</option>
+                                <option value="148">Premier League</option>
+                                <option value="176">Ligue 1</option>
+                                <option value="195">Bundesliga</option>
+                                <option value="262">Serie A</option>
+                            </select>
+                            <button type="submit" className="btn btn-dark btn-sm">Seleccionar</button>
+                        </div>
+                    </form>
                     <div className="row">
                         {this.state.copy && this.state.clubs.map((club, idx) => <div key={idx} className="col-md-3">
                             <div key={idx} onClick={(e) => this.handleModalModal(e, idx)} className="marg border pointer"><p>{club.team_name}</p>

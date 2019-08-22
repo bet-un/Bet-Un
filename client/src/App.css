@@ -44,7 +44,8 @@ nav ul,li{
   border-radius: 5px;
   text-align: center;
   margin: 10px 5px;
-  flex: 23%
+  flex: 23%;
+  
 }
 
 
@@ -55,9 +56,6 @@ nav ul,li{
 
 
 /* Apuestas */
-.apuRow{
-
-}
 .apu{
 border: 1px solid black;
 border-radius: 10px;
