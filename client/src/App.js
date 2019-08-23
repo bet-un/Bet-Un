@@ -10,6 +10,8 @@ import LeagueList from './components/League-list'
 import ClubList from './components/Club-list'
 import NavBar from './components/Nav'
 import Perfil from './components/Perfil'
+import Historico from './components/Historico-apuestas'
+import Chart from './components/chartHistorico'
 //import Video from './components/video'
 
 class App extends Component {
@@ -57,6 +59,8 @@ class App extends Component {
             <Route path="/Jornada" exact component={Jornada} />
             <Route path="/Apuesta" exact component={Apuesta} />
             <Route path="/Perfil" exact component={Perfil} />
+            <Route path="/Historico" exact component={Historico} />
+            <Route path="/Chart" exact component={Chart} />
           </Switch>
         </div>
       );
