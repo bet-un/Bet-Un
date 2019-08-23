@@ -34,7 +34,7 @@ class LeagueList extends Component {
 
 
     render() {
-        console.log(this.state)
+
         return (
             <>
                 <div className="container opacity">

@@ -15,6 +15,15 @@ nav ul,li{
   border: 2px solid black
 }
 
+.marg-top{
+  margin-top: 20px
+}
+
+.marg-top-bot{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .marg-lat{
   margin-left: 15px;
   margin-right: 15px
@@ -36,6 +45,10 @@ nav ul,li{
 .pointer {
   cursor: pointer; 
  }
+
+.center{
+  text-align: center
+}
 
 /* Ficha del club */
 .cardClub{
@@ -146,6 +159,20 @@ background-color: grey;
 }
 .apuestaya{
  color: rgba(255, 69, 0)
+}
+
+.cont-bets{
+  justify-content: space-around;
+  display: flex
+
+}
+
+.bets{
+  padding: 25px 40px;
+  display: inline;
+  border: 1px solid black;
+  border-radius: 100%;
+  font-size: 1.4em
 }
 
 /* VIDEO BACKGROUND */

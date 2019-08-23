@@ -8,7 +8,7 @@ const ApuestaCard = ({ match_awayteam_score, match_hometeam_score, match_status,
     return (
 
 
-        <tr className="timeM" onClick={onClick}>
+        <tr className="timeM pointer" onClick={onClick}>
 
             <td><p>{match_hometeam_name}</p></td>
             <td><p>{match_hometeam_score}</p></td>
