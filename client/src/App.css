@@ -179,3 +179,8 @@ background-color: grey;
    display: none;
  }
 }
+
+/* Vista privada */
+.botones{
+  padding: 40px 0px;
+}

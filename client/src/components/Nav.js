@@ -77,7 +77,7 @@ class NavBar extends Component {
                         <Nav className="mr-auto">
                             <Link className="links-nav marg-lat" to={`/Perfil`}>Mi perfil</Link>
                             <Link className="links-nav marg-lat" to={`/`}>Home</Link>
-                            <Link className="links-nav marg-lat" to={`/LigaSantander`}>Liga Santander</Link>
+                            <Link className="links-nav marg-lat" to={`/LigaSantander`}>Ligas</Link>
                             <Link className="links-nav marg-lat" to={`/Clubs`}>Clubs</Link>
                             <Link className="links-nav marg-lat" to={`/Jornada`}>Jornada</Link>
                             <Link className="links-nav marg-lat" to={`/Apuesta`}>Apuesta Ya!</Link>
