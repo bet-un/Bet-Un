@@ -56,12 +56,18 @@ class Apuesta extends Component {
                                     return (<>
                                         <ApuestaCard key={idx} {...apuesta} onClick={(e) => this.handleModal(e, idx)} />
 
-                                        <Modal size="lg" show={this.state.showModal[idx]} onHide={(e) => this.handleModal(e, idx)}>
-                                            <Modal.Header closeButton>
-                                                <Modal.Title>Detalles del club DE CORLEONE</Modal.Title>
-                                            </Modal.Header>
+                                        <Modal centered size="lg" show={this.state.showModal[idx]} onHide={(e) => this.handleModal(e, idx)}>
+                                            <h3 className="center marg-top">{apuesta.match_hometeam_name} - {apuesta.match_awayteam_name} </h3>
                                             <Modal.Body>
-                                                <p key={idx}>{apuesta.match_hometeam_name} - {apuesta.match_awayteam_name}</p>
+                                                <h4 className="center">Bet</h4>
+                                                <form>
+                                                    <div className="cont-bets marg-top-bot">
+                                                        <div className="bets pointer">1</div><div className="bets pointer">X</div><div className="bets pointer">2</div>
+                                                    </div>
+                                                    <div className="d-flex flex-column marg-top">
+                                                        <Button variant="dark">BET!</Button>
+                                                    </div>
+                                                </form>
                                             </Modal.Body>
                                             <Modal.Footer>
                                                 <Button variant="secondary" onClick={e => this.handleModal(e, idx)}>
