@@ -119,7 +119,6 @@ class NavBar extends Component {
                                 <Link className="links-nav marg-lat" to={`/LigaSantander`}>Liga Santander</Link>
                                 <Link className="links-nav marg-lat" to={`/Clubs`}>Clubs</Link>
                                 <Link className="links-nav marg-lat" to={`/Jornada`}>Jornada</Link>
-                                <Link className="links-nav marg-lat" to={`/Apuesta`}>Apuesta Ya!</Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
