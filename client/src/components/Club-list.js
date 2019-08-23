@@ -16,7 +16,7 @@ class ClubList extends Component {
             clubs: [],
             copy: [],
             showModal: [],
-            liga:""
+            liga: ""
         }
         this.services = new Services()
     }
@@ -79,7 +79,8 @@ class ClubList extends Component {
                     </form>
                     <div className="row">
                         {this.state.copy && this.state.clubs.map((club, idx) => <div key={idx} className="col-md-3">
-                            <div key={idx} onClick={(e) => this.handleModalModal(e, idx)} className="marg border pointer"><p>{club.team_name}</p>
+                            <div key={idx} onClick={(e) => this.handleModalModal(e, idx)} className="marg border pointer">
+                                <p>{club.team_name}</p>
                                 <img className="img-marg" src={club.team_badge} alt={club.team_name}></img>
 
 
