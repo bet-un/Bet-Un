@@ -24,7 +24,7 @@ class Chart extends Component {
                     options={{
                         title: {
                             display: this.props.displayTitle,
-                            text: 'Largest Cities In ' + this.props.location,
+                            text: 'Historico apuestas de ' + this.props.location,
                             fontSize: 25
                         },
                         legend: {
@@ -34,7 +34,7 @@ class Chart extends Component {
                     }}
                 />
 
-                <Line
+                {/* <Line
                     data={this.state.chartData}
                     options={{
                         title: {
@@ -47,14 +47,14 @@ class Chart extends Component {
                             position: this.props.legendPosition
                         }
                     }}
-                />
+                /> */}
 
                 <Pie
                     data={this.state.chartData}
                     options={{
                         title: {
                             display: this.props.displayTitle,
-                            text: 'Largest Cities In ' + this.props.location,
+                            text: 'Ganancias y Perdidas de ' + this.props.location,
                             fontSize: 25
                         },
                         legend: {

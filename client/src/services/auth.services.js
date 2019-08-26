@@ -14,4 +14,6 @@ export default class Services {
     login = (username, password) => this.service.post('login', { username, password })
     logout = () => this.service.post('logout')
     loggedin = () => this.service.get('loggedin')
+    postBet = theNewBet => this.service.post('postBet', theNewBet)
+
 }

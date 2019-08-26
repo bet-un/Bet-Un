@@ -17,17 +17,17 @@ class Historico extends Component {
         // Ajax calls here
         this.setState({
             chartData: {
-                labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+                labels: ['Apuesta1', 'Apuesta2', 'Apuesta3', 'Apuesta4', 'Apuesta5', 'Apuesta6'],
                 datasets: [
                     {
                         label: 'Population',
                         data: [
-                            617594,
-                            181045,
-                            153060,
-                            106519,
-                            105162,
-                            95072
+                            50,
+                            43,
+                            61,
+                            45,
+                            22,
+                            13
                         ],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.6)',
@@ -47,8 +47,10 @@ class Historico extends Component {
     render() {
         return (
             <div className="container">
-            <div className="row">
-                <Chart chartData={this.state.chartData} location="Massachusetts" legendPosition="bottom" />
+                <div className="row">
+                    <div className="col-6">
+                        <Chart chartData={this.state.chartData} location="=>Usuario" legendPosition="bottom" />
+                    </div>
                 </div>
             </div>
         );

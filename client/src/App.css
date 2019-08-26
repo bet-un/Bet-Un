@@ -132,35 +132,18 @@ td a:hover{
 
 
 /* Apuestas */
+.idMacht{
+display:none;
+}
+
 .apu{
 border: 1px solid black;
 border-radius: 10px;
 text-align: center
 }
-.local{
-background-color: rgba(70, 130, 180, .5);
-text-align: center
-}
 .timeM{
 text-align: center
 }
-.visitante{
-background-color: rgba(64, 224, 208, .5);
-text-align: center
-}
-.victoriaL{
-background-color: rgba(70, 130, 180)
-}
-.victoriaV{
-background-color: rgba(64, 224, 208)
-}
-.empate{
-background-color: grey;
-}
-.apuestaya{
- color: rgba(255, 69, 0)
-}
-
 .cont-bets{
   justify-content: space-around;
   display: flex

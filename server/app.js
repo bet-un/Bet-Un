@@ -87,5 +87,8 @@ app.use('/', Index);
 const auth = require('./routes/auth.routes')
 app.use('/api', auth);
 
+app.use('/api', require('./routes/bet.routes'))
+
+
 
 module.exports = app;

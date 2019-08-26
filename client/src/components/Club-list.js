@@ -73,6 +73,7 @@ class ClubList extends Component {
                                 <option value="176">Ligue 1</option>
                                 <option value="195">Bundesliga</option>
                                 <option value="262">Serie A</option>
+                                <option value="343">Eredivisie</option>
                             </select>
                             <button type="submit" className="btn btn-dark btn-sm">Seleccionar</button>
                         </div>

@@ -19,6 +19,16 @@ class Jornada extends Component {
             .catch(err => console.log(err))
         console.log(this.state.jornadas)
     }
+
+    handleChangeInput = e => { this.setState({ [e.target.name]: e.target.value }) }
+
+    handleFormSubmit = e => {
+        e.preventDefault()
+        this.services.getJornada(this.state.liga)
+            .then(response => this.setState({ jornadas: response.data }))
+            .catch(err => console.log(err))
+    }
+
     render() {
 
         return (
@@ -27,7 +37,21 @@ class Jornada extends Component {
                     <div className="row justify-content-center">
                         <img src="../logo192.png" alt="Liga" width="10%"></img>
                     </div>
-                    {/* <input id="start" type="date" />Desde <input id="end" type="date" />Hasta */}
+                    <form onSubmit={this.handleFormSubmit}>
+                        <div className="form-group linea">
+                            <label htmlFor="ligas"></label>
+                            <select name="liga" className="form-control" id="ligas" value={this.state.liga} onChange={this.handleChangeInput}>
+                                <option></option>
+                                <option value="468">Liga Santander</option>
+                                <option value="148">Premier League</option>
+                                <option value="176">Ligue 1</option>
+                                <option value="195">Bundesliga</option>
+                                <option value="262">Serie A</option>
+                                <option value="343">Eredivisie</option>
+                            </select>
+                            <button type="submit" className="btn btn-dark btn-sm">Seleccionar</button>
+                        </div>
+                    </form>
                     <table className="table">
                         <tbody>
                             <tr>

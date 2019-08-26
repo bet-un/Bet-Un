@@ -44,7 +44,7 @@ class LeagueList extends Component {
                         <img src="../ligue_1.png" alt="Liga" width="15%"></img>
                         <img src="../bundesliga.png" alt="Liga" width="15%"></img>
                         <img src="../serie-a.png" alt="Liga" width="15%"></img>
-
+                        <img src="../erediv.png" alt="Liga" width="12%"></img>
                     </div>
                     <form onSubmit={this.handleFormSubmit}>
                         <div className="form-group linea">
@@ -56,6 +56,7 @@ class LeagueList extends Component {
                                 <option value="176">Ligue 1</option>
                                 <option value="195">Bundesliga</option>
                                 <option value="262">Serie A</option>
+                                <option value="343">Eredivisie</option>
                             </select>
                             <button type="submit" className="btn btn-dark btn-sm">Seleccionar</button>
                         </div>
