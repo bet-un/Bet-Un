@@ -2,11 +2,12 @@ nav ul,li{
   list-style-type: none;
 }
 
-/*Clases generales*/
-.opacity{
-  background-color: white;
-  opacity: .8;
+body{
+  background: white url('./betoon-back.png') no-repeat fixed center /cover;
+  background-position-y: 0px
 }
+
+/*Clases generales*/
 
 .pos{
   width: 400px;
@@ -61,10 +62,15 @@ nav ul,li{
   
 }
 
-/* NavBar Links */
+/* NavBar and Links */
+
+.bg-dark{
+  background-color: black!important
+}
 
 .links-nav{
   color: white;
+  font-size: .8em
 }
 
 nav a:visited{
@@ -78,6 +84,86 @@ nav a:hover{
 }
 
 /* Menu Links */
+
+/* Forms Class */
+
+.signup-form{
+  width: 90%;
+  display: flex;
+  font-size: .9em;
+  justify-content: left
+}
+
+.labels{
+  display: inline-block;
+    margin-bottom: .5rem;
+    margin-right: 10%;
+    padding: 7.5px 15px;
+}
+
+.form-btn{
+  margin: 30px auto 10px auto;
+  width: 40%;
+  display: block;
+  color: white;
+  background-color: green;
+  border: none;
+  border-radius: 10%;
+}
+
+.register-btn{
+    background-color: #5DE520;
+    border-radius: 10%;
+    border: none;
+    color: white;
+    font-size: .7em;
+    padding: 5px 20px 5px 20px;
+    font-weight: bold
+}
+
+.login-btn{
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: .8em;
+}
+
+.modal-content{
+  border: none!important
+}
+
+.home{
+  font-size: 2em
+}
+
+nav button{
+  height: 35px;
+}
+
+.navbar-nav{
+  align-items: center;
+}
+
+/* home info */
+
+.carousel{
+    position: relative;
+    text-align: center;
+    color: white;
+    background-color: dimgrey;
+    font-size: .8em;
+    padding: 5px;
+}
+
+.offer{
+  position: relative;
+  text-align: center;
+  color: white;
+  background-color: #5DE520;
+  font-size: .7em;
+  padding: 5px;
+  font-weight: bold
+}
 
 /* .links-menu{
   color: black;

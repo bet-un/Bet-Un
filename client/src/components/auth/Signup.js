@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import AuthServices from '../../services/auth.services'
 
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+
 
 class Signup extends Component {
 
@@ -38,34 +38,24 @@ class Signup extends Component {
     render() {
 
         return (
-            // <div className="container">
-            //     <h2>Registro de usuario</h2>
-            //     <form onSubmit={this.handleFormSubmit}>
-            //         Usuario: <input name="username" type="text" value={this.state.username} onChange={this.handleInputChange} /> <br></br>
-            //         Contraseña: <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange} /> <br></br>
-
-            //         <input type="submit" value="Registrar" />
-            //     </form>
-            // </div>
 
             <Form onSubmit={this.handleFormSubmit}>
                 <Form.Group controlId="formBasicUser">
-                    <Form.Label>Nombre de Usuario</Form.Label>
-                    <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} placeholder="Usuario" />
-
+                    <div className="signup-form">
+                        <Form.Label className="labels">Username</Form.Label>
+                        <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
+                    </div>
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Contraseña</Form.Label>
-                    <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} placeholder="Debe contener 8 letras" />
+                    <div className="signup-form">
+                        <Form.Label className="labels">Password</Form.Label>
+                        <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
+                    </div>
+                    <button className="form-btn" type="submit">Register</button>
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Crear
-  </Button>
             </Form>
-
-
         )
     }
 }

@@ -3,9 +3,24 @@ import AuthServices from '../services/auth.services'
 import Signup from '../components/auth/Signup'
 import Login from '../components/auth/Login'
 import { Link } from 'react-router-dom'
-import { Modal, Button, Navbar, Nav } from 'react-bootstrap'
+import { Modal, Navbar, Nav } from 'react-bootstrap'
 import '../App.css';
 
+const modalStyle = function () {
+    return {
+
+        backgroundColor: 'black',
+        color: 'white',
+        opacity: '.7',
+        top: '150px',
+        display: 'block',
+        position: 'absolute',
+        width: '100%',
+        padding: '20px',
+        borderRadius: '5%'
+
+    };
+};
 
 class NavBar extends Component {
 
@@ -38,8 +53,6 @@ class NavBar extends Component {
 
     }
 
-
-
     render() {
 
         if (this.props.userInSession) {
@@ -71,17 +84,18 @@ class NavBar extends Component {
                 // </nav>
 
                 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                    <Navbar.Brand>Hola de nuevo, {userName}</Navbar.Brand>
+                    <Navbar.Brand>Wellcome, {userName}</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                            <Link className="links-nav marg-lat" to={`/Perfil`}>Mi perfil</Link>
-                            <Link className="links-nav marg-lat" to={`/`}>Home</Link>
-                            <Link className="links-nav marg-lat" to={`/LigaSantander`}>Ligas</Link>
+
+                            <Link className="links-nav marg-lat home" to={`/`}>BetOOn</Link>
+                            <Link className="links-nav marg-lat" to={`/Jornada`}>Matchday</Link>
                             <Link className="links-nav marg-lat" to={`/Clubs`}>Clubs</Link>
-                            <Link className="links-nav marg-lat" to={`/Jornada`}>Jornada</Link>
-                            <Link className="links-nav marg-lat" to={`/Apuesta`}>Apuesta Ya!</Link>
-                            <Link className="links-nav marg-lat" to={'/'} onClick={this.logout}>Cerrar sesión</Link>
+                            <Link className="links-nav marg-lat" to={`/LigaSantander`}>Leagues</Link>
+                            <Link className="links-nav marg-lat" to={`/Apuesta`}>Bet Now!</Link>
+                            <Link className="links-nav marg-lat" to={`/Perfil`}>Profile</Link>
+                            <Link className="links-nav marg-lat" to={'/'} onClick={this.logout}>Log out</Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
@@ -113,39 +127,32 @@ class NavBar extends Component {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">
-                                <Button variant="dark" onClick={this.handleModalLogin}>Login</Button>
-                                <Button variant="dark" onClick={this.handleModalSignup}>Signup</Button>
-                                <Link className="links-nav marg-lat" to={`/`}>Home</Link>
-                                <Link className="links-nav marg-lat" to={`/LigaSantander`}>Liga Santander</Link>
+
+                                <Link className="links-nav marg-lat home" to={`/`}>BetOOn</Link>
+                                <Link className="links-nav marg-lat" to={`/Jornada`}>Matchday</Link>
                                 <Link className="links-nav marg-lat" to={`/Clubs`}>Clubs</Link>
-                                <Link className="links-nav marg-lat" to={`/Jornada`}>Jornada</Link>
+                                <Link className="links-nav marg-lat" to={`/LigaSantander`}>Leagues</Link>
+
+                                <button className="register-btn marg-lat" onClick={this.handleModalSignup}>Register now</button>
+                                <button className="login-btn" onClick={this.handleModalLogin}>Login</button>
+
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
 
                     <Modal show={this.state.showModalSignup} onHide={this.handleModalSignup}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Crear nuevo usuario</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body><Signup handleModalSignup={this.handleModalSignup} setUser={this.props.setUser} /></Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={this.handleModalSignup}>
-                                Cerrar
-                           </Button>
+                        <div style={modalStyle()}>
+                            <h4 className="center">Signup</h4>
+                            <Modal.Body ><Signup handleModalSignup={this.handleModalSignup} setUser={this.props.setUser} /></Modal.Body>
 
-                        </Modal.Footer>
+                        </div>
                     </Modal>
-                    <Modal show={this.state.showModalLogin} onHide={this.handleModalLogin}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Entrar</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body><Login handleModalLogin={this.handleModalLogin} setUser={this.props.setUser} /></Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={this.handleModalLogin}>
-                                Cerrar
-                           </Button>
 
-                        </Modal.Footer>
+                    <Modal show={this.state.showModalLogin} onHide={this.handleModalLogin}>
+                        <div style={modalStyle()}>
+                            <h4 className="center">Login</h4>
+                            <Modal.Body><Login handleModalLogin={this.handleModalLogin} setUser={this.props.setUser} /></Modal.Body>
+                        </div>
                     </Modal>
                 </>
 

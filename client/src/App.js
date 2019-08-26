@@ -12,7 +12,7 @@ import NavBar from './components/Nav'
 import Perfil from './components/Perfil'
 import Historico from './components/Historico-apuestas'
 import Chart from './components/chartHistorico'
-//import Video from './components/video'
+// import Video from './components/video'
 
 class App extends Component {
 
@@ -53,6 +53,9 @@ class App extends Component {
           <NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
           {/* <Video /> */}
 
+          <div className="carousel">
+            sadlfkjsaflsjafljf alsñfjslfkjs alñfjdsalfjsafjl
+        </div>
           <Switch>
             <Route path="/LigaSantander" exact component={LeagueList} />
             <Route path="/Clubs" exact component={ClubList} />
@@ -69,8 +72,16 @@ class App extends Component {
         <div>
           <NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
           {/* <Video /> */}
+          <div className="carousel">
+            sadlfkjsaflsjafljf alsñfjslfkjs alñfjdsalfjsafjl
+        </div>
+          <div className="offer">
+            Register now and get 10€. Limited to the first 100 users!
+          </div>
           <Switch>
-
+            <Route path="/LigaSantander" exact component={LeagueList} />
+            <Route path="/Clubs" exact component={ClubList} />
+            <Route path="/Jornada" exact component={Jornada} />
           </Switch>
         </div>
       );
