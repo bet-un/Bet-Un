@@ -66,6 +66,11 @@ body{
 
 /* NavBar and Links */
 
+.nav-small{
+  color: #5DE520;
+  font-weight: bold
+}
+
 .bg-dark{
   background-color: black!important
 }
@@ -88,6 +93,7 @@ nav a:hover{
   text-decoration: none;
   color: grey
 }
+
 
 /* Menu Links */
 
@@ -205,10 +211,11 @@ nav button{
 
 .tables{
   background-color: black;
+  border-radius: 2%;
 }
 
-.tables td,tr{
-  color: black;
+.tables tr,td{
+  color: white;
 
 }
 
@@ -297,7 +304,9 @@ text-align: center
   display: inline;
   border: 1px solid black;
   border-radius: 100%;
-  font-size: 1.4em
+  font-size: 1.4em;
+  background-color: dimgray;
+  border-color: green
 }
 
 /* VIDEO BACKGROUND */
@@ -335,4 +344,8 @@ text-align: center
 /* Vista privada */
 .botones{
   padding: 40px 0px;
+}
+
+.bg{
+  background: white url('./betoon-back.png') no-repeat fixed center /cover;
 }

@@ -14,6 +14,7 @@ import Perfil from './components/Perfil'
 import Historico from './components/Historico-apuestas'
 import Chart from './components/chartHistorico'
 import TickerMove from './components/Ticker-move'
+import Secret from './components/Secret'
 // import Video from './components/video'
 
 class App extends Component {
@@ -67,6 +68,7 @@ class App extends Component {
             <Route path="/Perfil" exact component={Perfil} />
             <Route path="/Historico" exact component={Historico} />
             <Route path="/Chart" exact component={Chart} />
+            <Route path="/Secret" exact component={Secret} />
           </Switch>
         </>
       );

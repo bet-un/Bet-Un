@@ -22,7 +22,7 @@ const ApuestaCard = ({ match_id, match_awayteam_score, match_hometeam_score, mat
             <td><p>{prob_AW}</p></td>
             <td><p>{prob_D}</p></td>
 
-            <p className="idMacht">{match_id}</p>
+            {/* <p className="idMacht">{match_id}</p> */}
         </tr>
 
 

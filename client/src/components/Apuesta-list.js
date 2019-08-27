@@ -7,6 +7,16 @@ import ApuestaCard from './Apuesta-card'
 
 import { Modal, Button, Form } from 'react-bootstrap'
 
+const modalBet = function () {
+    return {
+
+        padding: '20px',
+        borderRadius: '5%',
+        color: 'white'
+
+    };
+};
+
 class Apuesta extends Component {
     constructor(props) {
         super(props)
@@ -46,18 +56,18 @@ class Apuesta extends Component {
 
 
     // Handle del Form
- 
-      handleInputChange= (e) => {
+
+    handleInputChange = (e) => {
         const { name, value } = e.target
 
-        this.setState({ ...this.state, [name]: value})
+        this.setState({ ...this.state, [name]: value })
     }
 
     handleFormSubmit = e => {
         e.preventDefault()
         this.services.postBet(this.state)
             .then(x => {
-                
+
             })
             .catch(err => console.log('error', err))
     }
@@ -122,9 +132,9 @@ class Apuesta extends Component {
 
                                                     </div>
                                                     <Form.Label htmlFor="input-local">Local</Form.Label>
-                                                    <Form.Control name="local" type="text" id="input-local" value={this.state.local} placeholder={apuesta.match_hometeam_name} onChange={this.handleInputChange}/>
+                                                    <Form.Control name="local" type="text" id="input-local" value={this.state.local} placeholder={apuesta.match_hometeam_name} onChange={this.handleInputChange} />
                                                     <Form.Label htmlFor="input-visitante">Visitante</Form.Label>
-                                                    <Form.Control name="visitante" type="text" id="input-visitante" value={this.state.visitante} placeholder={apuesta.match_awayteam_name} onChange={this.handleInputChange}/>
+                                                    <Form.Control name="visitante" type="text" id="input-visitante" value={this.state.visitante} placeholder={apuesta.match_awayteam_name} onChange={this.handleInputChange} />
                                                     <Form.Group controlId="formGridState">
                                                         <Form.Label htmlFor="input-apuestas">Seleccionar apuesta...</Form.Label>
                                                         <Form.Control as="select" name="apuestas" id="input-apuestas" value={this.state.apuestas} onChange={this.handleInputChange}>
