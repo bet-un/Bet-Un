@@ -7,6 +7,16 @@ import ApuestaCard from './Apuesta-card'
 
 import { Modal, Button, Form } from 'react-bootstrap'
 
+const modalBet = function () {
+    return {
+
+        padding: '20px',
+        borderRadius: '5%',
+        color: 'white'
+
+    };
+};
+
 class Apuesta extends Component {
     constructor(props) {
         super(props)
@@ -85,29 +95,26 @@ class Apuesta extends Component {
                                         <ApuestaCard key={idx} {...apuesta} onClick={(e) => this.handleModal(e, idx)} />
 
                                         <Modal centered size="lg" show={this.state.showModal[idx]} onHide={(e) => this.handleModal(e, idx)}>
-                                            <h3 className="center marg-top">{apuesta.match_hometeam_name} - {apuesta.match_awayteam_name} </h3>
-                                            <Modal.Body>
-                                                <h4 className="center">Bet</h4>
-                                                <Form onSubmit={this.handleFormSubmit}>
-                                                    <div className="cont-bets marg-top-bot">
-                                                        <div className="bets pointer">1</div><div className="bets pointer">X</div><div className="bets pointer">2</div>
-                                                    </div>
-                                                    <div className="form-group">
-                                                        <Form.Label>Cantidad</Form.Label>
-                                                        <Form.Control name="length" type="number" value={this.state.username} id="input-length" onChange={this.handleChangeInput} placeholder="Cantidad" />
+                                            <div style={modalBet()}>
+                                                <Modal.Header closeButton></Modal.Header>
+                                                <h3 className="center marg-top">{apuesta.match_hometeam_name} - {apuesta.match_awayteam_name} </h3>
+                                                <Modal.Body>
+                                                    <h4 className="center">Bet</h4>
+                                                    <Form onSubmit={this.handleFormSubmit}>
+                                                        <div className="cont-bets marg-top-bot">
+                                                            <div className="bets pointer">1</div><div className="bets pointer">X</div><div className="bets pointer">2</div>
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <Form.Label>Cantidad</Form.Label>
+                                                            <Form.Control name="length" type="number" value={this.state.username} id="input-length" onChange={this.handleChangeInput} placeholder="Cantidad" />
 
-                                                    </div>
-                                                    <div className="d-flex flex-column marg-top">
-                                                        <Button variant="dark" type="submit">BET!</Button>
-                                                    </div>
-                                                </Form>
-                                            </Modal.Body>
-                                            <Modal.Footer>
-                                                <Button variant="secondary" onClick={e => this.handleModal(e, idx)}>
-                                                    Cerrar
-                                                </Button>
-
-                                            </Modal.Footer>
+                                                        </div>
+                                                        <div className="d-flex flex-column marg-top">
+                                                            <Button variant="dark" type="submit">BET!</Button>
+                                                        </div>
+                                                    </Form>
+                                                </Modal.Body>
+                                            </div>
                                         </Modal>
                                     </>
                                     )

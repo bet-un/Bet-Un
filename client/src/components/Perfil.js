@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 
 
 class Perfil extends Component {
-    constructor() {
-        super()
-    }
+    // constructor() {
+    //     super()
+    // }
     render() {
         return (
             <>

@@ -3,7 +3,7 @@ import AuthServices from '../services/auth.services'
 import Signup from '../components/auth/Signup'
 import Login from '../components/auth/Login'
 import { Link } from 'react-router-dom'
-import { Modal, Navbar, Nav } from 'react-bootstrap'
+import { Modal, Navbar } from 'react-bootstrap'
 import '../App.css';
 
 const modalStyle = function () {
@@ -58,66 +58,78 @@ class NavBar extends Component {
         if (this.props.userInSession) {
             const userName = this.props.userInSession.data.username
 
-            return (
+            if (this.props.userInSession.data.username === 'ironhack') {
 
+                return (
 
+                    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 
-                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                    <Navbar.Brand>Welcome, {userName}</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="mr-auto">
-
+                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                        <Navbar.Collapse id="responsive-navbar-nav">
                             <Link className="links-nav marg-lat home" to={`/`}>BetOOn</Link>
                             <Link className="links-nav marg-lat" to={`/Jornada`}>Matchday</Link>
                             <Link className="links-nav marg-lat" to={`/Clubs`}>Clubs</Link>
                             <Link className="links-nav marg-lat" to={`/LigaSantander`}>Leagues</Link>
                             <Link className="links-nav marg-lat" to={`/Apuesta`}>Bet Now!</Link>
+                            <Link className="links-nav marg-lat" to={`/Secret`}>IH</Link>
+                        </Navbar.Collapse>
+
+                        <Navbar.Collapse className="justify-content-end">
                             <Link className="links-nav marg-lat" to={`/Perfil`}>Profile</Link>
                             <Link className="links-nav marg-lat" to={'/'} onClick={this.logout}>Log out</Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Navbar>
+                            <small className="nav-small">Welcome {userName}</small>
+                        </Navbar.Collapse>
+                    </Navbar>
 
-            )
-        } else {
+                )
+            } else {
+                return (
+
+                    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+
+                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                        <Navbar.Collapse id="responsive-navbar-nav">
+                            <Link className="links-nav marg-lat home" to={`/`}>BetOOn</Link>
+                            <Link className="links-nav marg-lat" to={`/Jornada`}>Matchday</Link>
+                            <Link className="links-nav marg-lat" to={`/Clubs`}>Clubs</Link>
+                            <Link className="links-nav marg-lat" to={`/LigaSantander`}>Leagues</Link>
+                            <Link className="links-nav marg-lat" to={`/Apuesta`}>Bet Now!</Link>
+                        </Navbar.Collapse>
+
+                        <Navbar.Collapse className="justify-content-end">
+                            <Link className="links-nav marg-lat" to={`/Perfil`}>Profile</Link>
+                            <Link className="links-nav marg-lat" to={'/'} onClick={this.logout}>Log out</Link>
+                            <small className="nav-small">Welcome {userName}</small>
+                        </Navbar.Collapse>
+                    </Navbar>
+
+                )
+            }
+        }
+
+        else {
 
             return (
 
                 <>
-                    {/* <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-                        <div className="collapse navbar-collapse" id="navbarNav">
-                            <ul className="navbar-nav">
-                                <li className="nav-item active marg-lat">
-                                    <Link className="nav-link" to="/">Home</Link>
-                                </li>
-
-                                <li className="nav-item marg-lat">
-                                    <Button variant="primary" onClick={this.handleModalLogin}>Login</Button>
-                                </li>
-                                <li className="nav-item marg-lat">
-                                    <Button variant="primary" onClick={this.handleModalSignup}>Signup</Button>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav> */}
 
                     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
-                            <Nav className="mr-auto">
+                            <Link className="links-nav marg-lat home" to={`/`}>BetOOn</Link>
+                            <Link className="links-nav marg-lat" to={`/Jornada`}>Matchday</Link>
+                            <Link className="links-nav marg-lat" to={`/Clubs`}>Clubs</Link>
+                            <Link className="links-nav marg-lat" to={`/LigaSantander`}>Leagues</Link>
+                        </Navbar.Collapse>
 
-                                <Link className="links-nav marg-lat home" to={`/`}>BetOOn</Link>
-                                <Link className="links-nav marg-lat" to={`/Jornada`}>Matchday</Link>
-                                <Link className="links-nav marg-lat" to={`/Clubs`}>Clubs</Link>
-                                <Link className="links-nav marg-lat" to={`/LigaSantander`}>Leagues</Link>
 
-                                <button className="register-btn marg-lat" onClick={this.handleModalSignup}>Register now</button>
-                                <button className="login-btn" onClick={this.handleModalLogin}>Login</button>
+                        <Navbar.Collapse className="justify-content-end">
 
-                            </Nav>
+                            <button className="register-btn marg-lat" onClick={this.handleModalSignup}>Register now</button>
+                            <button className="login-btn" onClick={this.handleModalLogin}>Login</button>
                         </Navbar.Collapse>
                     </Navbar>
+
 
                     <Modal show={this.state.showModalSignup} onHide={this.handleModalSignup}>
                         <div style={modalStyle()}>
