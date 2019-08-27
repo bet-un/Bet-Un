@@ -89,7 +89,7 @@ class NavBar extends Component {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
 
-                            <Link className="links-nav marg-lat home" to={`/`}>BetOOn</Link>
+                            <Link className="links-nav marg-lat home" to={`/`}><img src="../logoApp.png" alt="logoApp"></img></Link>
                             <Link className="links-nav marg-lat" to={`/Jornada`}>Matchday</Link>
                             <Link className="links-nav marg-lat" to={`/Clubs`}>Clubs</Link>
                             <Link className="links-nav marg-lat" to={`/LigaSantander`}>Leagues</Link>
@@ -128,7 +128,7 @@ class NavBar extends Component {
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">
 
-                                <Link className="links-nav marg-lat home" to={`/`}>BetOOn</Link>
+                                <Link className="links-nav marg-lat home" to={`/`}><img src="../logoApp.png" alt="logoApp"></img></Link>
                                 <Link className="links-nav marg-lat" to={`/Jornada`}>Matchday</Link>
                                 <Link className="links-nav marg-lat" to={`/Clubs`}>Clubs</Link>
                                 <Link className="links-nav marg-lat" to={`/LigaSantander`}>Leagues</Link>

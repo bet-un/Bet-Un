@@ -6,11 +6,11 @@ const Bet = require('../models/Bet')
 
 
 // requiero axios
-const axios = require('axios')
+//const axios = require('axios')
 
 
 router.get('/getAllBets', (req, res) => {
-    Coaster.find()
+    Bet.find()
         .then(allBets => res.json(allBets))
         .catch(err => console.log('Error', err))
 })

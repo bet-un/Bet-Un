@@ -26,11 +26,18 @@ class ClubList extends Component {
     //         .then(response => this.setState({ clubs: response.data, copy: response.data, showModal: Array(response.data.length - 1).fill(false) }))
     //         .catch(err => console.log(err))
     // }
-    handleChangeInput = e => { this.setState({ [e.target.name]: e.target.value }) }
+    // handleChangeInput = e => { this.setState({ [e.target.name]: e.target.value }) }
 
-    handleFormSubmit = e => {
+    // handleFormSubmit = e => {
+    //     e.preventDefault()
+    //     this.services.getClubs(this.state.liga)
+    //         .then(response => this.setState({ clubs: response.data, copy: response.data, showModal: Array(response.data.length - 1).fill(false) }))
+    //         .catch(err => console.log(err))
+    // }
+
+    handleChangeInput = e => {
         e.preventDefault()
-        this.services.getClubs(this.state.liga)
+        this.services.getClubs(e.target.value)
             .then(response => this.setState({ clubs: response.data, copy: response.data, showModal: Array(response.data.length - 1).fill(false) }))
             .catch(err => console.log(err))
     }
@@ -67,7 +74,7 @@ class ClubList extends Component {
                         <div className="form-group linea">
                             <label htmlFor="ligas"></label>
                             <select name="liga" className="form-control" id="ligas" value={this.state.liga} onChange={this.handleChangeInput}>
-                                <option></option>
+                                <option>Leagues</option>
                                 <option value="468">Liga Santander</option>
                                 <option value="148">Premier League</option>
                                 <option value="176">Ligue 1</option>
@@ -75,7 +82,6 @@ class ClubList extends Component {
                                 <option value="262">Serie A</option>
                                 <option value="343">Eredivisie</option>
                             </select>
-                            <button type="submit" className="btn btn-dark btn-sm">Seleccionar</button>
                         </div>
                     </form>
                     <div className="row">

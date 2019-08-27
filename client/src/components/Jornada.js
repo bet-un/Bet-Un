@@ -19,12 +19,17 @@ class Jornada extends Component {
             .catch(err => console.log(err))
         console.log(this.state.jornadas)
     }
+    // handleChangeInput = e => { this.setState({ [e.target.name]: e.target.value }) }
 
-    handleChangeInput = e => { this.setState({ [e.target.name]: e.target.value }) }
-
-    handleFormSubmit = e => {
+    // handleFormSubmit = e => {
+    //     e.preventDefault()
+    //     this.services.getJornada(this.state.liga)
+    //         .then(response => this.setState({ jornadas: response.data }))
+    //         .catch(err => console.log(err))
+    // }
+    handleChangeInput = e => {
         e.preventDefault()
-        this.services.getJornada(this.state.liga)
+        this.services.getJornada(e.target.value)
             .then(response => this.setState({ jornadas: response.data }))
             .catch(err => console.log(err))
     }
@@ -49,7 +54,6 @@ class Jornada extends Component {
                                 <option value="262">Serie A</option>
                                 <option value="343">Eredivisie</option>
                             </select>
-                            <button type="submit" className="btn btn-dark btn-sm">Seleccionar</button>
                         </div>
                     </form>
                     <table className="table">
