@@ -3,7 +3,7 @@ import Services from '../services/league.services'
 
 import ApuestaCard from './Apuesta-card'
 
-import '../App.css';
+// import '../App.css';
 
 import { Modal, Button, Form } from 'react-bootstrap'
 
@@ -74,7 +74,7 @@ class Apuesta extends Component {
     render() {
         return (
             <>
-                <div className="container opacity">
+                <div className="container tables">
                     <div className="row justify-content-center">
                         <form >
                             <div className="form-group linea">

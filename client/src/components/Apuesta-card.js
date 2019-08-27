@@ -16,7 +16,7 @@ const ApuestaCard = ({ match_id, match_awayteam_score, match_hometeam_score, mat
             <td><p>{match_awayteam_score}</p></td>
             <td><p>{match_awayteam_name}</p></td>
             <td><p>{match_time}</p></td>
-            <td><p>{match_date}</p></td>
+            <td><p className="p-date">{match_date}</p></td>
             <td><p>{match_status}</p></td>
             <td><p>{prob_HW}</p></td>
             <td><p>{prob_AW}</p></td>

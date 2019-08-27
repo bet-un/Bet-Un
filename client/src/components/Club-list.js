@@ -3,7 +3,7 @@ import Services from '../services/league.services'
 
 import SearchBar from './SearchBar'
 import ClubCard from './Club-card'
-import '../App.css';
+
 
 import { Modal, Button } from 'react-bootstrap'
 
@@ -65,9 +65,9 @@ class ClubList extends Component {
 
         return (
             <>
-                <div className="container opacity">
+                <div className="container tables">
                     <div className="row justify-content-center">
-                        <h2>Clubs</h2>
+                        <h2 className="clubs-title">Clubs</h2>
                     </div>
                     <SearchBar findProducts={this.findProducts} />
                     <form onSubmit={this.handleFormSubmit}>
@@ -93,7 +93,7 @@ class ClubList extends Component {
 
                                 <Modal size="lg" show={this.state.showModal[idx]} onHide={(e) => this.handleModalModal(e, idx)}>
                                     <Modal.Header closeButton>
-                                        <Modal.Title>Detalles del club {club.team_name}</Modal.Title>
+
                                     </Modal.Header>
                                     <Modal.Body><ClubCard key={idx} {...club}></ClubCard></Modal.Body>
                                     <Modal.Footer>

@@ -3,7 +3,7 @@ import Services from '../services/league.services'
 //import { Link } from 'react-router-dom'
 
 import LeagueCard from './League-card'
-import '../App.css';
+import '../bg.css';
 
 
 
@@ -46,7 +46,7 @@ class LeagueList extends Component {
 
         return (
             <>
-                <div className="container opacity">
+                <div className="container tables">
                     <div className="row justify-content-center">
                         <img src="../laliga-santander-v-1200x1200_2018.png" alt="Liga" width="15%"></img>
                         <img src="../Premier League.png" alt="Liga" width="15%"></img>
