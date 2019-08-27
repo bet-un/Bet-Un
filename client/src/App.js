@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+// import './bg.css'
+// import './App.css';
 import { Switch, Route } from 'react-router-dom'
 
 import AuthServices from './services/auth.services'
@@ -12,6 +13,7 @@ import NavBar from './components/Nav'
 import Perfil from './components/Perfil'
 import Historico from './components/Historico-apuestas'
 import Chart from './components/chartHistorico'
+import TickerMove from './components/Ticker-move'
 // import Video from './components/video'
 
 class App extends Component {
@@ -49,13 +51,14 @@ class App extends Component {
 
     if (this.state.loggedInUser) {
       return (
-        <div className="back" >
+        <>
           <NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
           {/* <Video /> */}
 
-          <div className="carousel">
-            sadlfkjsaflsjafljf alsñfjslfkjs alñfjdsalfjsafjl
-        </div>
+          <div className="carousel marg-bot">
+            <TickerMove />
+          </div>
+
           <Switch>
             <Route path="/LigaSantander" exact component={LeagueList} />
             <Route path="/Clubs" exact component={ClubList} />
@@ -65,17 +68,17 @@ class App extends Component {
             <Route path="/Historico" exact component={Historico} />
             <Route path="/Chart" exact component={Chart} />
           </Switch>
-        </div>
+        </>
       );
     } else {
       return (
-        <div>
+        <>
           <NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
           {/* <Video /> */}
           <div className="carousel">
-            sadlfkjsaflsjafljf alsñfjslfkjs alñfjdsalfjsafjl
-        </div>
-          <div className="offer">
+            <TickerMove />
+          </div>
+          <div className="offer marg-bot">
             Register now and get 10€. Limited to the first 100 users!
           </div>
           <Switch>
@@ -83,7 +86,7 @@ class App extends Component {
             <Route path="/Clubs" exact component={ClubList} />
             <Route path="/Jornada" exact component={Jornada} />
           </Switch>
-        </div>
+        </>
       );
     }
   }

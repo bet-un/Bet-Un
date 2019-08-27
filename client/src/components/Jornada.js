@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import Services from '../services/league.services'
 //import { Link } from 'react-router-dom'
 import Partido from './Partido'
-import '../App.css';
-
+import '../bg.css';
 
 class Jornada extends Component {
 
@@ -33,7 +32,7 @@ class Jornada extends Component {
 
         return (
             <>
-                <div className="container opacity">
+                <div className="container tables">
                     <div className="row justify-content-center">
                         <img src="../logo192.png" alt="Liga" width="10%"></img>
                     </div>

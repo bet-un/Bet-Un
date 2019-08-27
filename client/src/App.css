@@ -9,6 +9,7 @@ body{
 
 /*Clases generales*/
 
+
 .pos{
   width: 400px;
   margin: 25px;
@@ -18,6 +19,10 @@ body{
 
 .marg-top{
   margin-top: 20px
+}
+
+.marg-bot{
+  margin-bottom: 40px
 }
 
 .marg-top-bot{
@@ -34,10 +39,6 @@ body{
   margin: 15px
 }
 
-.border{
-  border: 1px solid black;
-  text-align: center
-}
 
 .img-marg{
   margin-bottom: 10px
@@ -45,7 +46,7 @@ body{
 
 .pointer {
   cursor: pointer; 
- }
+}
 
 .center{
   text-align: center
@@ -53,18 +54,23 @@ body{
 
 /* Ficha del club */
 .cardClub{
-  border: 1px solid black;
+ color: white;
   padding-bottom: 10px;
   border-radius: 5px;
   text-align: center;
   margin: 10px 5px;
   flex: 23%;
+
   
 }
 
 /* NavBar and Links */
 
 .bg-dark{
+  background-color: black!important
+}
+
+.bg-light{
   background-color: black!important
 }
 
@@ -79,8 +85,8 @@ nav a:visited{
 }
 
 nav a:hover{
- text-decoration: none;
- color: grey
+  text-decoration: none;
+  color: grey
 }
 
 /* Menu Links */
@@ -96,9 +102,9 @@ nav a:hover{
 
 .labels{
   display: inline-block;
-    margin-bottom: .5rem;
-    margin-right: 10%;
-    padding: 7.5px 15px;
+  margin-bottom: .5rem;
+  margin-right: 10%;
+  padding: 7.5px 15px;
 }
 
 .form-btn{
@@ -112,24 +118,26 @@ nav a:hover{
 }
 
 .register-btn{
-    background-color: #5DE520;
-    border-radius: 10%;
-    border: none;
-    color: white;
-    font-size: .7em;
-    padding: 5px 20px 5px 20px;
-    font-weight: bold
+  background-color: #5DE520;
+  border-radius: 10%;
+  border: none;
+  color: white;
+  font-size: .7em;
+  padding: 5px 20px 5px 20px;
+  font-weight: bold
 }
 
 .login-btn{
-    background-color: black;
-    color: white;
-    border: none;
-    font-size: .8em;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: .8em;
 }
 
 .modal-content{
-  border: none!important
+  border: none!important;
+  top: 100px!important;
+  background-color: #1f1f1f!important;
 }
 
 .home{
@@ -144,15 +152,24 @@ nav button{
   align-items: center;
 }
 
+.modal-header{
+  border: none!important;
+  padding: 0px!important
+}
+
+.modal-header span{
+  color: white;
+}
+
 /* home info */
 
 .carousel{
-    position: relative;
-    text-align: center;
-    color: white;
-    background-color: dimgrey;
-    font-size: .8em;
-    padding: 5px;
+  position: relative;
+  text-align: center;
+  color: white;
+  background-color: dimgrey;
+  font-size: .9em;
+  padding: 5px;
 }
 
 .offer{
@@ -163,6 +180,45 @@ nav button{
   font-size: .7em;
   padding: 5px;
   font-weight: bold
+}
+
+.tick-pos{
+  display: flex;
+  font-size: .7em;
+  text-align: center
+}
+
+/* Tables */
+
+.clubs-title{
+  color: white
+}
+
+.border{
+  border: 3px solid green!important;
+  text-align: center;
+  border-radius: 25%;
+  color: white;
+  font-size: .8em;
+  background-color: darkgrey;
+}
+
+.tables{
+  background-color: black;
+}
+
+.tables td,tr{
+  color: black;
+
+}
+
+.row{
+  margin-right: 30px!important;
+  margin-left: 30px!important;
+}
+
+.white-let tr, td{
+  color: white
 }
 
 /* .links-menu{

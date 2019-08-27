@@ -8,8 +8,8 @@ const ClubCard = ({ team_name, team_badge, players }) => {
         <div className="col-md-12">
             <div className="cardClub">
                 <h4>{team_name}</h4>
-                <img src={team_badge} alt="Escudo" width="15%"></img>
-                <table className="table">
+                <img className="marg-bot" src={team_badge} alt="Escudo" width="15%"></img>
+                <table className="table white-let">
                     <tbody>
                         <tr>
                             <th>Jugador</th>
