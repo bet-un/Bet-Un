@@ -5,7 +5,7 @@ export default class Services {
     constructor() {
 
         this.service = axios.create({
-            baseURL: `${REACT_APP_ROUTE}`,
+            baseURL: `http://localhost:5000/api/`,
             withCredentials: true
         })
     }
