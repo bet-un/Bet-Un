@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Services from '../services/league.services'
 import AuthServices from '../services/auth.services'
 import ApuestaCard from './Apuesta-card'
+import TickerMove from './Ticker-move'
 
-// import '../App.css';
 
 import { Modal, Button, Form } from 'react-bootstrap'
 
@@ -92,6 +92,10 @@ class Apuesta extends Component {
         // console.log(userName)
         return (
             <>
+                <div className="carousel marg-bot">
+                    <TickerMove />
+                </div>
+
                 <div className="container tables">
                     <div className="row justify-content-center">
                         <form >
@@ -129,7 +133,8 @@ class Apuesta extends Component {
                                         <ApuestaCard key={idx} {...apuesta} onClick={(e) => this.handleModal(e, idx)} />
 
                                         <Modal centered size="lg" show={this.state.showModal[idx]} onHide={(e) => this.handleModal(e, idx)}>
-                                            <h3 className="center marg-top apuModal">{apuesta.match_hometeam_name} - {apuesta.match_awayteam_name} </h3>
+                                            <Modal.Header closeButton></Modal.Header>
+                                            <h3 className="center marg-top">{apuesta.match_hometeam_name} - {apuesta.match_awayteam_name} </h3>
                                             <Modal.Body>
                                                 <h4 className="center apuModal">Bet</h4>
                                                 <h5 className="apuModal">Salary: {userName.balance && userName.balance[userName.balance.length - 1]}€</h5>
@@ -166,7 +171,7 @@ class Apuesta extends Component {
                                             </Modal.Body>
                                             <Modal.Footer>
                                                 <Button variant="secondary" onClick={e => this.handleModal(e, idx)}>
-                                                    Cerrar
+                                                    Close
                                                 </Button>
 
                                             </Modal.Footer>

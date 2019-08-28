@@ -20,13 +20,13 @@ class TickerMove extends Component {
     }
     render() {
         return this.state.tickers.length !== 0 ? (
-            <Ticker speed={5}>
+            <Ticker speed={5} mode={"smooth"} >
                 {() => (
                     <div className="tick-pos">
                         {this.state.tickers.map((tickers, idx) => <TickerBox key={idx} {...tickers} />)}
                     </div>
                 )}
-            </Ticker>
+            </Ticker >
         ) : (
                 <span>Loading...</span>
             )

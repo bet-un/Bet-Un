@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Services from '../services/league.services'
 //import { Link } from 'react-router-dom'
-
+import TickerMove from './Ticker-move'
 import LeagueCard from './League-card'
 import '../bg.css';
 
@@ -18,21 +18,6 @@ class LeagueList extends Component {
         this.services = new Services()
     }
 
-    // componentDidMount() {
-    //     this.services.getLeagues()
-    //         .then(response => this.setState({ leagues: response.data }))
-    //         .catch(err => console.log(err))
-    // }
-    // handleChangeInput = e => { this.setState({ [e.target.name]: e.target.value }, (e) => { this.handleFormSubmit(e) }) }
-    //handleChangeInput = e => { this.handleFormSubmit(e) }
-
-
-    // handleFormSubmit = e => {
-    //     e.preventDefault()
-    //     this.services.getLeagues(this.state.liga)
-    //         .then(response => this.setState({ leagues: response.data }))
-    //         .catch(err => console.log(err))
-    // }
     handleChangeInput = e => {
         e.preventDefault()
         this.services.getLeagues(e.target.value)
@@ -40,12 +25,14 @@ class LeagueList extends Component {
             .catch(err => console.log(err))
     }
 
-
-
     render() {
 
         return (
             <>
+                <div className="carousel marg-bot">
+                    <TickerMove />
+                </div>
+
                 <div className="container tables">
                     <div className="row justify-content-center">
                         <img src="../laliga-santander-v-1200x1200_2018.png" alt="Liga" width="15%"></img>

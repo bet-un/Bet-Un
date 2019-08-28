@@ -3,6 +3,7 @@ import Services from '../services/league.services'
 
 import SearchBar from './SearchBar'
 import ClubCard from './Club-card'
+import TickerMove from './Ticker-move'
 
 
 import { Modal, Button } from 'react-bootstrap'
@@ -20,20 +21,6 @@ class ClubList extends Component {
         }
         this.services = new Services()
     }
-
-    // componentDidMount() {
-    //     this.services.getClubs()
-    //         .then(response => this.setState({ clubs: response.data, copy: response.data, showModal: Array(response.data.length - 1).fill(false) }))
-    //         .catch(err => console.log(err))
-    // }
-    // handleChangeInput = e => { this.setState({ [e.target.name]: e.target.value }) }
-
-    // handleFormSubmit = e => {
-    //     e.preventDefault()
-    //     this.services.getClubs(this.state.liga)
-    //         .then(response => this.setState({ clubs: response.data, copy: response.data, showModal: Array(response.data.length - 1).fill(false) }))
-    //         .catch(err => console.log(err))
-    // }
 
     handleChangeInput = e => {
         e.preventDefault()
@@ -65,6 +52,10 @@ class ClubList extends Component {
 
         return (
             <>
+                <div className="carousel marg-bot">
+                    <TickerMove />
+                </div>
+
                 <div className="container tables">
                     <div className="row justify-content-center">
                         <h2 className="clubs-title">Clubs</h2>
@@ -98,7 +89,7 @@ class ClubList extends Component {
                                     <Modal.Body><ClubCard key={idx} {...club}></ClubCard></Modal.Body>
                                     <Modal.Footer>
                                         <Button variant="secondary" onClick={e => this.handleModalModal(e, idx)}>
-                                            Cerrar
+                                            Close
                                </Button>
 
                                     </Modal.Footer>

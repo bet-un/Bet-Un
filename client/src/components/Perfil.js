@@ -4,6 +4,8 @@ import Services from '../services/league.services'
 import AuthServices from '../services/auth.services'
 import Historico from '../components/Historico-apuestas'
 
+
+import TickerMove from './Ticker-move'
 import BetCard from './Bet-card'
 
 
@@ -34,6 +36,9 @@ class Perfil extends Component {
 
         return (
             <>
+                <div className="carousel marg-bot">
+                    <TickerMove />
+                </div>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6 botones">

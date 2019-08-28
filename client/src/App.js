@@ -12,8 +12,9 @@ import ClubList from './components/Club-list'
 import NavBar from './components/Nav'
 import Perfil from './components/Perfil'
 import Historico from './components/Historico-apuestas'
-import Chart from './components/chartHistorico'
-import TickerMove from './components/Ticker-move'
+import Home from './components/Home'
+// import Chart from './components/chartHistorico'
+// import TickerMove from './components/Ticker-move'
 import Secret from './components/Secret'
 // import Video from './components/video'
 
@@ -56,18 +57,18 @@ class App extends Component {
           <NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
           {/* <Video /> */}
 
-          <div className="carousel marg-bot">
-            <TickerMove />
-          </div>
+          {/* <div className="carousel marg-bot">
+              <TickerMove />
+          </div> */}
 
           <Switch>
+            <Route path="/" exact component={Home} />
             <Route path="/LigaSantander" exact component={LeagueList} />
             <Route path="/Clubs" exact component={ClubList} />
             <Route path="/Jornada" exact component={Jornada} />
             <Route path="/Apuesta" exact component={Apuesta} />
             <Route path="/Perfil" exact component={Perfil} />
             <Route path="/Historico" exact component={Historico} />
-            <Route path="/Chart" exact component={Chart} />
             <Route path="/Secret" exact component={Secret} />
           </Switch>
         </>
@@ -77,13 +78,12 @@ class App extends Component {
         <>
           <NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
           {/* <Video /> */}
-          <div className="carousel">
-            <TickerMove />
-          </div>
-          <div className="offer marg-bot">
+
+          <div className="offer">
             Register now and get 10€. Limited to the first 100 users!
           </div>
           <Switch>
+            <Route path="/" exact component={Home} />
             <Route path="/LigaSantander" exact component={LeagueList} />
             <Route path="/Clubs" exact component={ClubList} />
             <Route path="/Jornada" exact component={Jornada} />

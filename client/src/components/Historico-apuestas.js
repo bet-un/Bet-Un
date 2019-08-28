@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 //import { Link } from 'react-router-dom'
 //import Services from '../services/league.services'
 import Chart from './chartHistorico'
+import TickerMove from './Ticker-move'
 
 class Historico extends Component {
     constructor() {
@@ -57,13 +58,18 @@ class Historico extends Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-12">
-                        <Chart chartData={this.state.chartData} legendPosition="bottom" />
+            <>
+                <div className="carousel marg-bot">
+                    <TickerMove />
+                </div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-6">
+                            <Chart chartData={this.state.chartData} location="=>Usuario" legendPosition="bottom" />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </>
         );
     }
 }

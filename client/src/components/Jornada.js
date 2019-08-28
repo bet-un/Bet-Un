@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Services from '../services/league.services'
 //import { Link } from 'react-router-dom'
 import Partido from './Partido'
+import TickerMove from './Ticker-move'
 import '../bg.css';
 
 class Jornada extends Component {
@@ -37,6 +38,10 @@ class Jornada extends Component {
 
         return (
             <>
+                <div className="carousel marg-bot">
+                    <TickerMove />
+                </div>
+
                 <div className="container tables">
                     <div className="row justify-content-center">
                         <img src="../logo192.png" alt="Liga" width="10%"></img>
