@@ -134,7 +134,7 @@ class Apuesta extends Component {
 
                                         <Modal centered size="lg" show={this.state.showModal[idx]} onHide={(e) => this.handleModal(e, idx)}>
                                             <Modal.Header closeButton></Modal.Header>
-                                            <h3 className="center marg-top">{apuesta.match_hometeam_name} - {apuesta.match_awayteam_name} </h3>
+                                            <h3 className="center marg-top apuModal">{apuesta.match_hometeam_name} - {apuesta.match_awayteam_name} </h3>
                                             <Modal.Body>
                                                 <h4 className="center apuModal">Bet</h4>
                                                 <h5 className="apuModal">Salary: {userName.balance && userName.balance[userName.balance.length - 1]}€</h5>

@@ -89,6 +89,7 @@ app.use('/api', auth);
 
 app.use('/api', require('./routes/bet.routes'))
 
+app.use((req, res) => { res.sendFile(__dirname + "/public/index.html"); });
 
 
 module.exports = app;
