@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const betSchema = new Schema({
     apuestas: Number,
     cantidad: Number,
+    unoxdos: String,
     local: String,
     visitante: String
 }, { timestamps: true })

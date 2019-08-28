@@ -8,6 +8,7 @@ class Historico extends Component {
         super();
         this.state = {
             chartData: {}
+
         }
     }
     componentWillMount() {
@@ -17,27 +18,37 @@ class Historico extends Component {
         // Ajax calls here
         this.setState({
             chartData: {
-                labels: ['Apuesta1', 'Apuesta2', 'Apuesta3', 'Apuesta4', 'Apuesta5', 'Apuesta6'],
+                labels: ['Levante - Villareal', 'Real Madrid - Valladoril', 'Barcelona - Betis', 'Tottenham - Newcastle', 'Alaves - Espanyol', 'Celta de Vigo - Valencia'],
                 datasets: [
                     {
-                        label: 'Population',
+                        label: 'Bets',
                         data: [
+                            10,
+                            25,
                             50,
-                            43,
-                            61,
-                            45,
-                            22,
-                            13
+                            42,
+                            13,
+                            15
+                        ],
+                        borderColor: [
+                            'rgba(31,31,31, .52)',
+                            'rgba(31,31,31, .52)',
+                            'rgba(31,31,31, .52)',
+                            'rgba(31,31,31, .52)',
+                            'rgba(31,31,31, .52)',
+                            'rgba(31,31,31, .52)'
+
                         ],
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.6)',
-                            'rgba(54, 162, 235, 0.6)',
-                            'rgba(255, 206, 86, 0.6)',
-                            'rgba(75, 192, 192, 0.6)',
-                            'rgba(153, 102, 255, 0.6)',
-                            'rgba(255, 159, 64, 0.6)',
-                            'rgba(255, 99, 132, 0.6)'
+                            'rgba(45, 235, 17, .52)',
+                            'rgba(45, 235, 17, .52)',
+                            'rgba(45, 235, 17, .52)',
+                            'rgba(45, 235, 17, .52)',
+                            'rgba(45, 235, 17, .52)',
+                            'rgba(45, 235, 17, .52)'
+
                         ]
+
                     }
                 ]
             }
@@ -48,8 +59,8 @@ class Historico extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-6">
-                        <Chart chartData={this.state.chartData} location="=>Usuario" legendPosition="bottom" />
+                    <div className="col-12">
+                        <Chart chartData={this.state.chartData} legendPosition="bottom" />
                     </div>
                 </div>
             </div>

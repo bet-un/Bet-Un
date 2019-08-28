@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Services from '../services/league.services'
-
+import AuthServices from '../services/auth.services'
 import ApuestaCard from './Apuesta-card'
 
 // import '../App.css';
@@ -24,18 +24,24 @@ class Apuesta extends Component {
             apuesta: [],
             copy: [],
             showModal: [],
+            user: [],
+            balance: '',
             cantidad: '',
             apuestas: '',
             local: '',
-            visitante: ''
+            visitante: '',
+            unoxdos: ''
         }
         this.services = new Services()
+        this.authServices = new AuthServices()
     }
 
     componentDidMount() {
         this.services.getPredictions()
             .then(response => this.setState({ apuesta: response.data, copy: response.data, showModal: Array(response.data.length - 1).fill(false) }))
             .catch(err => console.log(err))
+        this.authServices.loggedin()
+            .then(response => this.setState({ user: response.data }))
     }
 
     handleModal = (e, index) => {
@@ -45,29 +51,26 @@ class Apuesta extends Component {
         this.setState({ ...this.state, showModal: copy })
     }
 
-    // handleChangeInput = e => this.setState({ [e.target.name]: e.target.value })
-
-    // handleFormSubmit = e => {
-    //     e.preventDefault()
-    //     this.services.getPredictions(this.state.liga)
-    //         .then(response => this.setState({ apuesta: response.data }))
-    //         .catch(err => console.log(err))
-    // }
-
 
     // Handle del Form
-
     handleInputChange = (e) => {
         const { name, value } = e.target
-
         this.setState({ ...this.state, [name]: value })
     }
 
     handleFormSubmit = e => {
         e.preventDefault()
+        console.log(this.state.user.balance[this.state.user.balance.length - 1])
+        console.log(this.state.cantidad)
+
+        const dif = parseFloat(this.state.user.balance[this.state.user.balance.length - 1]) - parseFloat(this.state.cantidad)
+        console.log(dif)
+        this.authServices.updateUser(this.state)
+            .then(newuser => {
+                this.setState({ balance: dif })
+            })
         this.services.postBet(this.state)
             .then(x => {
-
             })
             .catch(err => console.log('error', err))
     }
@@ -82,6 +85,11 @@ class Apuesta extends Component {
     }
 
     render() {
+        //const salary = this.state.cantidad
+        const userName = this.state.user
+        //let newSalary = (userName.balance[userName.balance.length - 1]) - salary
+        //console.log(salary)
+        // console.log(userName)
         return (
             <>
                 <div className="container tables">
@@ -121,10 +129,10 @@ class Apuesta extends Component {
                                         <ApuestaCard key={idx} {...apuesta} onClick={(e) => this.handleModal(e, idx)} />
 
                                         <Modal centered size="lg" show={this.state.showModal[idx]} onHide={(e) => this.handleModal(e, idx)}>
-                                            <h3 className="center marg-top">{apuesta.match_hometeam_name} - {apuesta.match_awayteam_name} </h3>
+                                            <h3 className="center marg-top apuModal">{apuesta.match_hometeam_name} - {apuesta.match_awayteam_name} </h3>
                                             <Modal.Body>
-                                                <h4 className="center">Bet</h4>
-
+                                                <h4 className="center apuModal">Bet</h4>
+                                                <h5 className="apuModal">Salary: {userName.balance && userName.balance[userName.balance.length - 1]}€</h5>
 
                                                 <Form onSubmit={this.handleFormSubmit}>
                                                     <div className="cont-bets marg-top-bot">
@@ -139,7 +147,7 @@ class Apuesta extends Component {
                                                         <Form.Label htmlFor="input-apuestas">Seleccionar apuesta...</Form.Label>
                                                         <Form.Control as="select" name="apuestas" id="input-apuestas" value={this.state.apuestas} onChange={this.handleInputChange}>
                                                             <option>Choose...</option>
-                                                            <option value={apuesta.prob_HW} >1 => {apuesta.prob_HW}</option>
+                                                            <option value={apuesta.prob_HW}>1 => {apuesta.prob_HW}</option>
                                                             <option value={apuesta.prob_D}>X => {apuesta.prob_D}</option>
                                                             <option value={apuesta.prob_AW}>2 => {apuesta.prob_AW}</option>
                                                         </Form.Control>

@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { Bar, Pie } from 'react-chartjs-2'
+import ApuestaCard from './Apuesta-card'
 
 class Chart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            chartData: props.chartData
+            chartData: props.chartData,
+            apuesta: props.apuesta
         }
     }
 
@@ -24,8 +26,8 @@ class Chart extends Component {
                     options={{
                         title: {
                             display: this.props.displayTitle,
-                            text: 'Historico apuestas de ' + this.props.location,
-                            fontSize: 25
+                            text: 'Historico de apuestas' + this.props.location,
+                            fontSize: 20
                         },
                         legend: {
                             display: this.props.displayLegend,
@@ -49,7 +51,7 @@ class Chart extends Component {
                     }}
                 /> */}
 
-                <Pie
+                {/* <Pie
                     data={this.state.chartData}
                     options={{
                         title: {
@@ -62,7 +64,7 @@ class Chart extends Component {
                             position: this.props.legendPosition
                         }
                     }}
-                />
+                /> */}
             </div>
         )
     }

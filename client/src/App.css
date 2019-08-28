@@ -176,6 +176,7 @@ nav button{
   background-color: dimgrey;
   font-size: .9em;
   padding: 5px;
+  
 }
 
 .offer{
@@ -284,7 +285,9 @@ td a:hover{
 .idMacht{
 display:none;
 }
-
+.apuModal{
+  color: white;
+}
 .apu{
 border: 1px solid black;
 border-radius: 10px;
@@ -349,3 +352,4 @@ text-align: center
 .bg{
   background: white url('./betoon-back.png') no-repeat fixed center /cover;
 }
+

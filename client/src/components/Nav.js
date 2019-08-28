@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import AuthServices from '../services/auth.services'
-import Signup from '../components/auth/Signup'
 import Login from '../components/auth/Login'
+import Signup from '../components/auth/Signup'
 import { Link } from 'react-router-dom'
 import { Modal, Navbar } from 'react-bootstrap'
 import '../App.css';

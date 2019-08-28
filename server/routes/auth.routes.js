@@ -106,4 +106,12 @@ authRoutes.get('/loggedin', (req, res, next) => {
     res.status(403).json({ message: 'Unauthorized' });
 });
 
+authRoutes.post('/update', (req, res, next) => {
+    User.findByIdAndUpdate(user.id, { $push: { balance: dif } })
+    //console.log(user.id)
+        .then(newuser => res.json(newuser))
+        .catch(err => console.log('Error', err))
+})
+
+
 module.exports = authRoutes
