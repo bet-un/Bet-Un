@@ -4,8 +4,8 @@ const Secret = () => {
 
     return (
 
-        <section className="bg">
-
+        <section className="bg clean">
+            <h1>Hola</h1>
         </section>
     )
 }

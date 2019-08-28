@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Services from '../services/league.services'
 
-
+import TickerMove from './Ticker-move'
 import BetCard from './Bet-card'
 
 class Perfil extends Component {
@@ -23,6 +23,9 @@ class Perfil extends Component {
     render() {
         return (
             <>
+                <div className="carousel marg-bot">
+                    <TickerMove />
+                </div>
                 <div className="container">
                     <div className="row">
                         {/* <h4>{username}</h4> */}

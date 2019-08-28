@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Services from '../services/league.services'
 
 import ApuestaCard from './Apuesta-card'
+import TickerMove from './Ticker-move'
 
-// import '../App.css';
 
 import { Modal, Button, Form } from 'react-bootstrap'
 
@@ -45,18 +45,6 @@ class Apuesta extends Component {
         this.setState({ ...this.state, showModal: copy })
     }
 
-    // handleChangeInput = e => this.setState({ [e.target.name]: e.target.value })
-
-    // handleFormSubmit = e => {
-    //     e.preventDefault()
-    //     this.services.getPredictions(this.state.liga)
-    //         .then(response => this.setState({ apuesta: response.data }))
-    //         .catch(err => console.log(err))
-    // }
-
-
-    // Handle del Form
-
     handleInputChange = (e) => {
         const { name, value } = e.target
 
@@ -84,6 +72,10 @@ class Apuesta extends Component {
     render() {
         return (
             <>
+                <div className="carousel marg-bot">
+                    <TickerMove />
+                </div>
+
                 <div className="container tables">
                     <div className="row justify-content-center">
                         <form >
@@ -121,6 +113,7 @@ class Apuesta extends Component {
                                         <ApuestaCard key={idx} {...apuesta} onClick={(e) => this.handleModal(e, idx)} />
 
                                         <Modal centered size="lg" show={this.state.showModal[idx]} onHide={(e) => this.handleModal(e, idx)}>
+                                            <Modal.Header closeButton></Modal.Header>
                                             <h3 className="center marg-top">{apuesta.match_hometeam_name} - {apuesta.match_awayteam_name} </h3>
                                             <Modal.Body>
                                                 <h4 className="center">Bet</h4>
@@ -158,7 +151,7 @@ class Apuesta extends Component {
                                             </Modal.Body>
                                             <Modal.Footer>
                                                 <Button variant="secondary" onClick={e => this.handleModal(e, idx)}>
-                                                    Cerrar
+                                                    Close
                                                 </Button>
 
                                             </Modal.Footer>

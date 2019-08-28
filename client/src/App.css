@@ -71,6 +71,10 @@ body{
   font-weight: bold
 }
 
+nav{
+  font-size: 1.3em
+}
+
 .bg-dark{
   background-color: black!important
 }
@@ -118,18 +122,30 @@ nav a:hover{
   width: 40%;
   display: block;
   color: white;
-  background-color: green;
+  font-weight: bold;
+  background-color: #2DEB11;
+  border: none;
+  border-radius: 10%;
+}
+.form-btn-err{
+  margin: 20px auto 10px auto;
+  width: 40%;
+  display: block;
+  color: white;
+  font-weight: bold;
+  background-color: #2DEB11;
   border: none;
   border-radius: 10%;
 }
 
 .register-btn{
-  background-color: #5DE520;
+  background-color: #2DEB11;
   border-radius: 10%;
   border: none;
   color: white;
   font-size: .7em;
-  padding: 5px 20px 5px 20px;
+  padding-left: 40px;
+  padding-right: 40px;
   font-weight: bold
 }
 
@@ -138,6 +154,14 @@ nav a:hover{
   color: white;
   border: none;
   font-size: .8em;
+  margin-left: 10px;
+  margin-right: 10px
+}
+
+.warning-msg{
+  padding: 7.5px 15px;
+  margin: 10px 0 0 0;
+
 }
 
 .modal-content{
@@ -160,7 +184,7 @@ nav button{
 
 .modal-header{
   border: none!important;
-  padding: 0px!important
+  /* padding: 0px!important */
 }
 
 .modal-header span{
@@ -174,7 +198,7 @@ nav button{
   text-align: center;
   color: white;
   background-color: dimgrey;
-  font-size: .9em;
+  font-size: 1.3em;
   padding: 5px;
 }
 
@@ -182,7 +206,7 @@ nav button{
   position: relative;
   text-align: center;
   color: white;
-  background-color: #5DE520;
+  background-color: #2DEB11;
   font-size: .7em;
   padding: 5px;
   font-weight: bold
@@ -199,6 +223,8 @@ nav button{
 .clubs-title{
   color: white
 }
+
+
 
 .border{
   border: 3px solid green!important;
@@ -347,5 +373,6 @@ text-align: center
 }
 
 .bg{
-  background: white url('./betoon-back.png') no-repeat fixed center /cover;
+  background: white url('./ih.JPG') no-repeat fixed center /cover;
+  height: 100vh;
 }

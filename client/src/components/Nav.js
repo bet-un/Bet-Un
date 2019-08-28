@@ -16,7 +16,6 @@ const modalStyle = function () {
         display: 'block',
         position: 'absolute',
         width: '100%',
-        padding: '20px',
         borderRadius: '5%'
 
     };

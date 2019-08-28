@@ -10,7 +10,8 @@ class Signup extends Component {
         super(props)
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            error: false
         }
         this.authServices = new AuthServices()
     }
@@ -27,36 +28,91 @@ class Signup extends Component {
             .then(theNewUser => {
                 this.setState({
                     username: '',
-                    password: ''
+                    password: '',
+                    error: false
                 })
                 this.props.setUser(theNewUser)
                 this.props.handleModalSignup()
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                const errorState = !this.state.error
+                this.setState({ error: errorState })
+            })
     }
 
     render() {
 
-        return (
+        if (this.state.error == false) {
 
-            <Form onSubmit={this.handleFormSubmit}>
-                <Form.Group controlId="formBasicUser">
-                    <div className="signup-form">
-                        <Form.Label className="labels">Username</Form.Label>
-                        <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
-                    </div>
-                </Form.Group>
+            return (
 
-                <Form.Group controlId="formBasicPassword">
-                    <div className="signup-form">
-                        <Form.Label className="labels">Password</Form.Label>
-                        <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
-                    </div>
-                    <button className="form-btn" type="submit">Register</button>
-                </Form.Group>
+                <Form onSubmit={this.handleFormSubmit}>
+                    <Form.Group controlId="formBasicUser">
+                        <div className="signup-form">
+                            <Form.Label className="labels">Username</Form.Label>
+                            <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
+                        </div>
+                    </Form.Group>
 
-            </Form>
-        )
+                    <Form.Group controlId="formBasicPassword">
+                        <div className="signup-form">
+                            <Form.Label className="labels">Password</Form.Label>
+                            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
+                        </div>
+                        <button className="form-btn" type="submit">Register</button>
+                    </Form.Group>
+
+                </Form>
+            )
+        } if (this.state.password.length < 7) {
+
+            return (
+
+                <Form onSubmit={this.handleFormSubmit}>
+                    <Form.Group controlId="formBasicUser">
+                        <div className="signup-form">
+                            <Form.Label className="labels">Username</Form.Label>
+                            <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
+                        </div>
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicPassword">
+                        <div className="signup-form">
+                            <Form.Label className="labels">Password</Form.Label>
+                            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
+                        </div>
+                        <p className="warning-msg">Password must contain at least 8 characters</p>
+                        <button className="form-btn-err" type="submit">Register</button>
+                    </Form.Group>
+
+                </Form>
+            )
+
+        }
+        else {
+            return (
+
+                <Form onSubmit={this.handleFormSubmit}>
+                    <Form.Group controlId="formBasicUser">
+                        <div className="signup-form">
+                            <Form.Label className="labels">Username</Form.Label>
+                            <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
+                        </div>
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicPassword">
+                        <div className="signup-form">
+                            <Form.Label className="labels">Password</Form.Label>
+                            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
+                        </div>
+                        <p className="warning-msg">User or password not available</p>
+                        <button className="form-btn-err" type="submit">Register</button>
+                    </Form.Group>
+
+                </Form>
+            )
+        }
+
     }
 }
 
