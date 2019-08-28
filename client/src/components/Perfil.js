@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Services from '../services/league.services'
 import AuthServices from '../services/auth.services'
-import Historico from '../components/Historico-apuestas'
+//import Historico from '../components/Historico-apuestas'
 
 
 import TickerMove from './Ticker-move'
@@ -48,7 +48,7 @@ class Perfil extends Component {
                             <h6>Salary: {userName.balance && userName.balance[userName.balance.length - 1]}€</h6>
                         </div>
                         <div className="col-md-6 botones">
-                            <Historico />
+                            {/* <Historico /> */}
                         </div>
                         <table className="table tables">
                             <tbody>
