@@ -42,7 +42,7 @@ class Signup extends Component {
 
     render() {
 
-        if (this.state.error == false) {
+        if (!this.state.error) {
 
             return (
 
@@ -64,7 +64,7 @@ class Signup extends Component {
 
                 </Form>
             )
-        } if (this.state.password.length < 7) {
+        } else if (this.state.password.length <= 7) {
 
             return (
 
