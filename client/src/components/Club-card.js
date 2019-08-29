@@ -12,13 +12,13 @@ const ClubCard = ({ team_name, team_badge, players }) => {
                 <table className="table white-let">
                     <tbody>
                         <tr>
-                            <th>Jugador</th>
-                            <th>Dorsal</th>
-                            <th>Años</th>
-                            <th>P.J.</th>
-                            <th>Goles</th>
-                            <th>T.A.</th>
-                            <th>T.R.</th>
+                            <th>Player</th>
+                            <th>Number</th>
+                            <th>Age</th>
+                            <th>Matches Playeds</th>
+                            <th>Goals</th>
+                            <th>Y.C</th>
+                            <th>R.C</th>
 
                         </tr>
 

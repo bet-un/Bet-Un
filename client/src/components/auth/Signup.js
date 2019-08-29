@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AuthServices from '../../services/auth.services'
-
+import warn from '../../warn-rojo.png'
 import Form from 'react-bootstrap/Form'
 
 
@@ -42,7 +42,7 @@ class Signup extends Component {
 
     render() {
 
-        if (this.state.error == false) {
+        if (!this.state.error) {
 
             return (
 
@@ -64,7 +64,7 @@ class Signup extends Component {
 
                 </Form>
             )
-        } if (this.state.password.length < 7) {
+        } else if (this.state.password.length <= 7) {
 
             return (
 
@@ -81,7 +81,9 @@ class Signup extends Component {
                             <Form.Label className="labels">Password</Form.Label>
                             <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
                         </div>
-                        <p className="warning-msg">Password must contain at least 8 characters</p>
+                        <div className="warn">
+                            <img src={warn} alt="Warning" /><p className="warning-msg">Password must contain at least 8 characters</p>
+                        </div>
                         <button className="form-btn-err" type="submit">Register</button>
                     </Form.Group>
 
@@ -105,7 +107,9 @@ class Signup extends Component {
                             <Form.Label className="labels">Password</Form.Label>
                             <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
                         </div>
-                        <p className="warning-msg">User or password not available</p>
+                        <div className="warn">
+                            <img src={warn} alt="Warning" /><p className="warning-msg">User or password not available</p>
+                        </div>
                         <button className="form-btn-err" type="submit">Register</button>
                     </Form.Group>
 

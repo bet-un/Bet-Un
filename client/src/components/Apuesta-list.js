@@ -7,16 +7,6 @@ import TickerMove from './Ticker-move'
 
 import { Modal, Button, Form } from 'react-bootstrap'
 
-const modalBet = function () {
-    return {
-
-        padding: '20px',
-        borderRadius: '5%',
-        color: 'white'
-
-    };
-};
-
 class Apuesta extends Component {
     constructor(props) {
         super(props)
@@ -58,7 +48,7 @@ class Apuesta extends Component {
         this.setState({ ...this.state, [name]: value })
     }
 
-    handleFormSubmit = e => {
+    handleFormSubmit = (e, idx) => {
         e.preventDefault()
         //console.log(this.state.user.balance[this.state.user.balance.length - 1])
         //console.log(this.state.cantidad)
@@ -72,13 +62,32 @@ class Apuesta extends Component {
                     //console.log(bets)
                     .then(newuser => {
                         this.setState({ balance: newuser.balance })
-                            
-                                this.props.setTheUser(newuser)
-                                this.forceUpdate()
+
+                        this.props.setTheUser(newuser)
+                        this.forceUpdate()
                     })
                     .catch(err => console.log(err))
             })
             .catch(err => console.log('error', err))
+
+        // console.log(this.state.user.balance[this.state.user.balance.length - 1])
+        // console.log(this.state.cantidad)
+        const local = this.state.apuesta[idx].match_hometeam_name
+        const visitante = this.state.apuesta[idx].match_awayteam_name
+        // console.log(dif)
+        this.setState({ local, visitante }, () => {
+
+
+            this.authServices.updateUser(this.state)
+                .then(newuser => {
+                    this.setState({ balance: dif })
+                })
+            this.services.postBet(this.state)
+                .then(x => {
+                })
+                .catch(err => console.log('error', err))
+
+        })
     }
 
 
@@ -121,17 +130,17 @@ class Apuesta extends Component {
                         <table className="table">
                             <tbody>
                                 <tr className="timeM">
-                                    <th><p>Local</p></th>
-                                    <th><p>G.L.</p></th>
+                                    <th><p>Hometeam</p></th>
+                                    <th><p>H.G</p></th>
                                     <th><p>-</p></th>
-                                    <th><p>G.V.</p></th>
-                                    <th><p>Visitante</p></th>
-                                    <th><p>Hora</p></th>
-                                    <th><p>Fecha</p></th>
-                                    <th><p>Estado</p></th>
-                                    <th><p>1</p></th>
-                                    <th><p>X</p></th>
-                                    <th><p>2</p></th>
+                                    <th><p>A.G</p></th>
+                                    <th><p>Awayteam</p></th>
+                                    <th><p>Time</p></th>
+                                    <th><p>Date</p></th>
+                                    <th><p>State</p></th>
+                                    <th><p>Prob.V.H.</p></th>
+                                    <th><p>Prob.V.A.</p></th>
+                                    <th><p>Prob.D.</p></th>
                                 </tr>
 
                                 {this.state.apuesta && this.state.apuesta.map((apuesta, idx) => {
@@ -145,17 +154,14 @@ class Apuesta extends Component {
                                                 <h4 className="center apuModal">Bet</h4>
                                                 <h5 className="apuModal">Salary: {userName.balance && userName.balance[userName.balance.length - 1]}€</h5>
 
-                                                <Form onSubmit={this.handleFormSubmit}>
+                                                <Form onSubmit={(e) => this.handleFormSubmit(e, idx)}>
                                                     <div className="cont-bets marg-top-bot">
-                                                        <div className="bets pointer">1</div><div className="bets pointer">X</div><div className="bets pointer">2</div>
+                                                        <div className="bets">1</div><div className="bets">X</div><div className="bets">2</div>
 
                                                     </div>
-                                                    <Form.Label htmlFor="input-local">Local</Form.Label>
-                                                    <Form.Control name="local" type="text" id="input-local" value={this.state.local} placeholder={apuesta.match_hometeam_name} onChange={this.handleInputChange} />
-                                                    <Form.Label htmlFor="input-visitante">Visitante</Form.Label>
-                                                    <Form.Control name="visitante" type="text" id="input-visitante" value={this.state.visitante} placeholder={apuesta.match_awayteam_name} onChange={this.handleInputChange} />
+
                                                     <Form.Group controlId="formGridState">
-                                                        <Form.Label htmlFor="input-apuestas">Seleccionar apuesta...</Form.Label>
+                                                        <Form.Label htmlFor="input-apuestas"></Form.Label>
                                                         <Form.Control as="select" name="apuestas" id="input-apuestas" value={this.state.apuestas} onChange={this.handleInputChange}>
                                                             <option>Choose...</option>
                                                             <option value={apuesta.prob_HW}>1 => {apuesta.prob_HW}</option>
@@ -164,8 +170,8 @@ class Apuesta extends Component {
                                                         </Form.Control>
                                                     </Form.Group>
                                                     <div className="form-group">
-                                                        <Form.Label htmlFor="input-cantidad">Cantidad</Form.Label>
-                                                        <Form.Control name="cantidad" type="number" id="input-cantidad" value={this.state.cantidad} placeholder="Cantidad" onChange={this.handleInputChange} />
+                                                        <Form.Label htmlFor="input-cantidad"></Form.Label>
+                                                        <Form.Control name="cantidad" type="number" id="input-cantidad" value={this.state.cantidad} placeholder="Bet amount" onChange={this.handleInputChange} />
 
                                                     </div>
                                                     <div className="d-flex flex-column marg-top">

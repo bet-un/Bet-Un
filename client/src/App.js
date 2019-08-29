@@ -18,6 +18,7 @@ import Home from './components/Home'
 import Secret from './components/Secret'
 // import Video from './components/video'
 
+
 class App extends Component {
 
   constructor() {
@@ -62,12 +63,13 @@ class App extends Component {
           </div> */}
 
           <Switch>
-            <Route path="/" exact component={Home} />
+            <Route path="/" exact render={() => <Home userInSession={this.state.loggedInUser}></Home>} />
             <Route path="/LigaSantander" exact component={LeagueList} />
             <Route path="/Clubs" exact component={ClubList} />
             <Route path="/Jornada" exact component={Jornada} />
             <Route path="/Apuesta" exact render={() => <Apuesta setUser={this.setTheUser} usuario={this.state.loggedInUser} />} />
-            <Route path="/Perfil" exact component={Perfil} />
+            {/* <Route path="/Apuesta" exact component={Apuesta} /> */}
+            <Route path="/Perfil" exact render={() => <Perfil setUser={this.setTheUser}></Perfil>} />
             <Route path="/Historico" exact component={Historico} />
             <Route path="/Secret" exact component={Secret} />
           </Switch>

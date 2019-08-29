@@ -6,6 +6,7 @@ const UserSchema = new Schema({
     password: String,
     balance: { type: [Number], default: [10] },
     bets: [{ type: Schema.Types.ObjectId, ref: 'Bet' }],
+    card: { type: Boolean, default: false }
 }, { timestamps: true })
 
 const User = mongoose.model('User', UserSchema)

@@ -1,10 +1,7 @@
-nav ul,li{
-  list-style-type: none;
-}
 
 body{
   background: white url('./betoon-back.png') no-repeat fixed center /cover;
-  background-position-y: 0px
+  background-position-y: 0px;
 }
 
 /*Clases generales*/
@@ -38,7 +35,6 @@ body{
 .marg{
   margin: 15px
 }
-
 
 .img-marg{
   margin-bottom: 10px
@@ -99,7 +95,35 @@ nav a:hover{
 }
 
 
-/* Menu Links */
+/* Home League Box */
+
+h5{
+  text-align: center;
+  margin-bottom: 1em;
+  font-weight: bold;
+}
+
+.leagues-box{
+  position: relative;
+  left: 65%;
+  width: 25%;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  border-radius: 5%;
+  opacity: .9;
+}
+
+.leagues-box ol{
+  line-height: 2em;
+}
+
+.league-list{
+  margin: 10px 0;
+  background: #6c757d;
+  padding: 5px;
+  font-weight: bold;
+}
 
 /* Forms Class */
 
@@ -162,6 +186,24 @@ nav a:hover{
   padding: 7.5px 15px;
   margin: 10px 0 0 0;
 
+}
+
+.warn{
+  display: flex;
+  margin: 10px;
+  text-align: center;
+  justify-content: center;
+}
+
+.warn p{
+  margin: 0px;
+  padding-top: 7px;
+  font-size: .9em
+}
+
+.warn img{
+  width: 8%;
+  margin-right: 2px;
 }
 
 .modal-content{
@@ -228,7 +270,7 @@ nav button{
 
 
 .border{
-  border: 3px solid green!important;
+  border: 3px solid #2DEB11!important;
   text-align: center;
   border-radius: 25%;
   color: white;
@@ -255,38 +297,6 @@ nav button{
   color: white
 }
 
-/* .links-menu{
-  color: black;
-}
-
-.links-menu-box{
-  border: 1px solid black;
-  width: 10%;
-  font-size: .8em;
-  background-color: white;
-  height: 100vh;
-  position: fixed;
-  left: 0px;
-  top: 10.4%;
-  z-index: 100;
-  
-}
-
-.menu-in{
-    transform: translateX(0);
-}
-
-.menu-out{
-  transform: translateX(-100%);
-  transition: linear .5s;
-}
-
-.links-menu-box a:hover{
-  text-decoration: none;
-  color: grey
-
-} */
-
 /* Club Links */
 
 td a{
@@ -300,12 +310,6 @@ td a:visited{
 td a:hover{
   text-decoration: none;
 }
-
-/* .linkBtn{
-  margin-left: 60px;
-
-} */
-
 
 /* Apuestas */
 .idMacht{
@@ -322,6 +326,25 @@ text-align: center
 .timeM{
 text-align: center
 }
+
+.timeM th{
+  border-bottom: 1px solid #1f1f1f!important;
+  border-top: none!important
+}
+
+.timeM td{
+  border-bottom: 1px solid #3f3f3f!important;
+  border-top: none!important
+}
+
+.timeM th button{
+  color: white;
+}
+
+.timeM th button:hover{
+  color: dimgray
+}
+
 .cont-bets{
   justify-content: space-around;
   display: flex
@@ -335,7 +358,57 @@ text-align: center
   border-radius: 100%;
   font-size: 1.4em;
   background-color: dimgray;
-  border-color: green
+  border-color: #2DEB11
+}
+
+/* Profile */
+
+.card-info{
+  display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #2DEB11;
+    text-align: center;
+    justify-content: center;
+}
+
+.card-form{
+  width: 40%;
+  margin-left: 18%;
+}
+
+.date-form label{
+  margin-right: 3%
+}
+
+.card-btn{
+  background-color: #2DEB11;
+  color: white;
+  border: none;
+
+}
+
+.add-card{
+  color: black;
+}
+
+.add-other-card{
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+}
+
+.botones button:hover{
+  color: white
+}
+
+.card-info button:hover{
+color:dimgray
+}
+
+.card-info p{
+  color: white;
+  margin-bottom: 0px
 }
 
 /* VIDEO BACKGROUND */
