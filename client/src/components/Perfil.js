@@ -50,7 +50,7 @@ class Perfil extends Component {
             .then(response => {
                 //console.log(response.data)
                 this.setState({ bets: response.data.bets })
-                console.log(response.data.bets)
+
             })
         this.authServices.loggedin()
             .then(response => this.setState({ user: response.data }))
@@ -64,8 +64,11 @@ class Perfil extends Component {
     }
 
     render() {
+
         const userName = this.state.user
+
         if (this.state.user.card) {
+
             return (
                 <>
                     <div className="carousel marg-bot">

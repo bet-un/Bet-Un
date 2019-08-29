@@ -121,13 +121,21 @@ authRoutes.post('/update', (req, res, next) => {
     const userBet = req.body.bet
     //console.log(req.body)
     //console.log(dif)
+    //console.log(req.body)
+    //console.log(userBet._id, "estoy en el back")
+    // console.log(req.body, "soy undefined?")
+    // User.findByIdAndUpdate(req.user._id, { $push: { bets: theNewBet._id, balance: dif } }, { new: true })
+    //     .then((user) => {
+    //         console.log(user)
+    //         console.log('aqui el nuevo usuario')
+    //     })
 
     User.findByIdAndUpdate(req.user._id, { $push: { balance: dif, bets: userBet._id } }, { new: true })
         //console.log(user.id)
         .then(newuser => res.status(200).json(newuser))
-    // User.findByIdAndUpdate(user.id, { $push: { balance: dif } })
-    //     //console.log(user.id)
-    //     .then(newuser => res.json(newuser))
+        // User.findByIdAndUpdate(user.id, { $push: { balance: dif } })
+        //     //console.log(user.id)
+        //     .then(newuser => res.json(newuser))
         .catch(err => console.log('Error', err))
 })
 

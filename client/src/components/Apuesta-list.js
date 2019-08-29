@@ -72,16 +72,12 @@ class Apuesta extends Component {
 
         // console.log(this.state.user.balance[this.state.user.balance.length - 1])
         // console.log(this.state.cantidad)
+
         const local = this.state.apuesta[idx].match_hometeam_name
         const visitante = this.state.apuesta[idx].match_awayteam_name
         // console.log(dif)
         this.setState({ local, visitante }, () => {
 
-
-            this.authServices.updateUser(this.state)
-                .then(newuser => {
-                    this.setState({ balance: dif })
-                })
             this.services.postBet(this.state)
                 .then(x => {
                 })
