@@ -13,9 +13,9 @@ class Chart extends Component {
 
     static defaultProps = {
         displayTitle: true,
-        displayLegend: true,
-        legendPosition: 'right',
-        location: 'City'
+        //displayLegend: true,
+        //legendPosition: 'right',
+        location: ''
     }
 
     render() {
@@ -27,7 +27,7 @@ class Chart extends Component {
                         title: {
                             display: this.props.displayTitle,
                             text: 'Historico de apuestas' + this.props.location,
-                            fontSize: 20
+                            fontSize: 25
                         },
                         legend: {
                             display: this.props.displayLegend,

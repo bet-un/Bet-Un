@@ -18,6 +18,7 @@ export default class Services {
 
     getBets = () => this.service.get('getAllBets')
     postBet = theNewBet => this.service.post('postBet', theNewBet)
+    
 
 }
 //Llamar desde el back

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 //import { Link } from 'react-router-dom'
 //import Services from '../services/league.services'
 import Chart from './chartHistorico'
-import TickerMove from './Ticker-move'
+//import TickerMove from './Ticker-move'
 
 class Historico extends Component {
     constructor() {
@@ -19,7 +19,7 @@ class Historico extends Component {
         // Ajax calls here
         this.setState({
             chartData: {
-                labels: ['Levante - Villareal', 'Real Madrid - Valladoril', 'Barcelona - Betis', 'Tottenham - Newcastle', 'Alaves - Espanyol', 'Celta de Vigo - Valencia'],
+                labels: ['1', '2', '3', '4', '5', '6'],
                 datasets: [
                     {
                         label: 'Bets',
@@ -59,13 +59,11 @@ class Historico extends Component {
     render() {
         return (
             <>
-                <div className="carousel marg-bot">
-                    <TickerMove />
-                </div>
+
                 <div className="container">
                     <div className="row">
-                        <div className="col-6">
-                            <Chart chartData={this.state.chartData} location="=>Usuario" legendPosition="bottom" />
+                        <div className="col-12">
+                            <Chart chartData={this.state.chartData} legendPosition="bottom" />
                         </div>
                     </div>
                 </div>

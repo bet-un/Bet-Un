@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Services from '../services/league.services'
 import AuthServices from '../services/auth.services'
-//import Historico from '../components/Historico-apuestas'
+import Historico from '../components/Historico-apuestas'
 
-
+import Paypal from './pay-pal'
 import TickerMove from './Ticker-move'
 import BetCard from './Bet-card'
 
@@ -21,19 +21,26 @@ class Perfil extends Component {
         this.authServices = new AuthServices()
 
     }
+    componentDidMount = () => {
+        this.showList()
+    }
 
-    componentDidMount() {
+    showList = () => {
+        this.authServices.myBets()
+            .then(response => {
+                //console.log(response.data)
+                this.setState({ bets: response.data.bets })
+                console.log(response.data.bets)
+            })
         this.authServices.loggedin()
             .then(response => this.setState({ user: response.data }))
-        this.services.getBets()
-            .then(response => this.setState({ bets: response.data }))
             .catch(err => console.log(err))
     }
 
 
     render() {
-        const userName = this.state.user
 
+        const userName = this.state.user
         return (
             <>
                 <div className="carousel marg-bot">
@@ -46,9 +53,11 @@ class Perfil extends Component {
                             <Link to={'/Apuesta'}><img src="../bet.png" alt="Bet" width="15%"></img></Link>
                             <h5>User: {userName.username && userName.username}</h5>
                             <h6>Salary: {userName.balance && userName.balance[userName.balance.length - 1]}€</h6>
+                            <Paypal />
+                            {/* <h2>{userName.bets}</h2> */}
                         </div>
                         <div className="col-md-6 botones">
-                            {/* <Historico /> */}
+                            <Historico />
                         </div>
                         <table className="table tables">
                             <tbody>
@@ -57,7 +66,7 @@ class Perfil extends Component {
                                     <th><p>Cantidad apostada</p></th>
                                     <th><p>Cantidad por euro apostado</p></th>
                                 </tr>
-                                {this.state.bets && this.state.bets.map(bets => <BetCard key={bets._id} {...bets} />)}
+                                {this.state.bets && this.state.bets.map(bets => <BetCard key={bets} {...bets} />)}
                             </tbody>
                         </table>
 

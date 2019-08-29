@@ -14,6 +14,13 @@ export default class Services {
     login = (username, password) => this.service.post('login', { username, password })
     logout = () => this.service.post('logout')
     loggedin = () => this.service.get('loggedin')
-    updateUser = () => this.service.post('update')
+    updateUser = (updateInfo) => {
+        const { dif, bet } = updateInfo
+        //console.log(updateInfo, "vengo de auth service")
+        //console.log("info que llega al update service", { dif: updateInfo.dif, idBet: updateInfo.bet })
+        return this.service.post('update', { dif, bet })
+    }
+    myBets = () => this.service.get('misApuestas')
+
 
 }

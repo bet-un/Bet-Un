@@ -66,7 +66,7 @@ class App extends Component {
             <Route path="/LigaSantander" exact component={LeagueList} />
             <Route path="/Clubs" exact component={ClubList} />
             <Route path="/Jornada" exact component={Jornada} />
-            <Route path="/Apuesta" exact component={Apuesta} />
+            <Route path="/Apuesta" exact render={() => <Apuesta setUser={this.setTheUser} usuario={this.state.loggedInUser} />} />
             <Route path="/Perfil" exact component={Perfil} />
             <Route path="/Historico" exact component={Historico} />
             <Route path="/Secret" exact component={Secret} />

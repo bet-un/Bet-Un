@@ -60,17 +60,23 @@ class Apuesta extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault()
-        console.log(this.state.user.balance[this.state.user.balance.length - 1])
-        console.log(this.state.cantidad)
+        //console.log(this.state.user.balance[this.state.user.balance.length - 1])
+        //console.log(this.state.cantidad)
 
         const dif = parseFloat(this.state.user.balance[this.state.user.balance.length - 1]) - parseFloat(this.state.cantidad)
-        console.log(dif)
-        this.authServices.updateUser(this.state)
-            .then(newuser => {
-                this.setState({ balance: dif })
-            })
+        const bet = this.state.apuesta
+        //console.log(bet, "salgo del componente")
         this.services.postBet(this.state)
-            .then(x => {
+            .then(newBet => {
+                this.authServices.updateUser({ dif: dif, bet: newBet.data })
+                    //console.log(bets)
+                    .then(newuser => {
+                        this.setState({ balance: newuser.balance })
+                            
+                                this.props.setTheUser(newuser)
+                                this.forceUpdate()
+                    })
+                    .catch(err => console.log(err))
             })
             .catch(err => console.log('error', err))
     }
@@ -123,9 +129,9 @@ class Apuesta extends Component {
                                     <th><p>Hora</p></th>
                                     <th><p>Fecha</p></th>
                                     <th><p>Estado</p></th>
-                                    <th><p>Prob.V.L.</p></th>
-                                    <th><p>Prob.V.V.</p></th>
-                                    <th><p>Prob.E.</p></th>
+                                    <th><p>1</p></th>
+                                    <th><p>X</p></th>
+                                    <th><p>2</p></th>
                                 </tr>
 
                                 {this.state.apuesta && this.state.apuesta.map((apuesta, idx) => {
