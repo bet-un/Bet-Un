@@ -48,7 +48,7 @@ class Perfil extends Component {
     showList = () => {
         this.authServices.myBets()
             .then(response => {
-                //console.log(response.data)
+                console.log(response.data, "HOLA SOY TU SALVACION")
                 this.setState({ bets: response.data.bets })
 
             })
@@ -101,7 +101,10 @@ class Perfil extends Component {
                                         <th><p>Bet amount</p></th>
                                         <th><p>Odds</p></th>
                                     </tr>
-                                    {this.state.bets && this.state.bets.map(bets => <BetCard key={bets._id} {...bets} />)}
+                                    {this.state.bets && this.state.bets.map(bets => {
+                                        console.log(bets)
+                                        return <BetCard key={bets._id} {...bets} />
+                                    })}
                                 </tbody>
                             </table>
 
@@ -147,7 +150,11 @@ class Perfil extends Component {
                                         <th><p>Bet amount</p></th>
                                         <th><p>Odds</p></th>
                                     </tr>
-                                    {this.state.bets && this.state.bets.map(bets => <BetCard key={bets._id} {...bets} />)}
+
+                                    {this.state.bets && this.state.bets.map(bets => {
+                                        console.log(bets, "asdas")
+                                        return <BetCard key={bets._id} {...bets} />
+                                    })}
                                 </tbody>
                             </table>
 

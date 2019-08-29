@@ -24,6 +24,8 @@ router.post('/postBet', (req, res) => {
     console.log(local, visitante, cantidad, unoxdos)
     Bet.create({ local, visitante, cantidad, unoxdos, apuestas })
         .then(theNewBet => {
+
+            console.log(theNewBet, "DIOS YA APOARECE JODER OSTIA")
             //User.findByIdAndUpdate(req.user._id, { $push: { bets: theNewBet._id } }, { new: true })
 
             //  .then((user) => {

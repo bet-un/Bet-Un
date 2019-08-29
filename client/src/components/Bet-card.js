@@ -5,7 +5,7 @@ const BetCard = ({ local, visitante, cantidad, apuestas }) => {
 
     return (
 
-        <tr className="timeM pointer">
+        <tr className="timeM">
             <td><p>{local} - {visitante}</p></td>
             <td><p>{cantidad}</p></td>
             <td><p>{apuestas}</p></td>

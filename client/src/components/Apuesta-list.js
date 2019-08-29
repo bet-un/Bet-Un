@@ -29,7 +29,7 @@ class Apuesta extends Component {
     componentDidMount() {
         this.services.getPredictions()
             .then(response => this.setState({ apuesta: response.data, copy: response.data, showModal: Array(response.data.length - 1).fill(false) }))
-            .catch(err => console.log(err))
+            .catch(err => console.log({ err }))
         this.authServices.loggedin()
             .then(response => this.setState({ user: response.data }))
     }
@@ -55,35 +55,36 @@ class Apuesta extends Component {
 
         const dif = parseFloat(this.state.user.balance[this.state.user.balance.length - 1]) - parseFloat(this.state.cantidad)
         const bet = this.state.apuesta
-        //console.log(bet, "salgo del componente")
-        this.services.postBet(this.state)
-            .then(newBet => {
-                this.authServices.updateUser({ dif: dif, bet: newBet.data })
-                    //console.log(bets)
-                    .then(newuser => {
-                        this.setState({ balance: newuser.balance })
 
-                        this.props.setTheUser(newuser)
-                        this.forceUpdate()
-                    })
-                    .catch(err => console.log(err))
-            })
-            .catch(err => console.log('error', err))
+        const local = this.state.apuesta[idx].match_hometeam_name
+        const visitante = this.state.apuesta[idx].match_awayteam_name
+        //console.log(bet, "salgo del componente")
+
+        this.setState({ local, visitante }, () => {
+
+            this.services.postBet(this.state)
+                .then(newBet => {
+                    this.authServices.updateUser({ dif: dif, bet: newBet.data })
+                        //console.log(bets)
+                        .then(newuser => {
+                            this.setState({ balance: newuser.balance })
+
+                            // this.props.setTheUser(newuser)
+                            this.forceUpdate()
+                        })
+                        .catch(err => console.log({ err }))
+                })
+                .catch(err => console.log('error', { err }))
+
+        })
+
+        // this.services.postBet(this.state)
 
         // console.log(this.state.user.balance[this.state.user.balance.length - 1])
         // console.log(this.state.cantidad)
 
-        const local = this.state.apuesta[idx].match_hometeam_name
-        const visitante = this.state.apuesta[idx].match_awayteam_name
         // console.log(dif)
-        this.setState({ local, visitante }, () => {
 
-            this.services.postBet(this.state)
-                .then(x => {
-                })
-                .catch(err => console.log('error', err))
-
-        })
     }
 
 
@@ -156,7 +157,7 @@ class Apuesta extends Component {
 
                                                     </div>
 
-                                                    <Form.Group controlId="formGridState">
+                                                    <Form.Group controlId="formGridOdds">
                                                         <Form.Label htmlFor="input-apuestas"></Form.Label>
                                                         <Form.Control as="select" name="apuestas" id="input-apuestas" value={this.state.apuestas} onChange={this.handleInputChange}>
                                                             <option>Choose...</option>
