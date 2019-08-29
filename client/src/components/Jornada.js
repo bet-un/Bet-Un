@@ -17,7 +17,7 @@ class Jornada extends Component {
         this.services.getJornada()
             .then(response => this.setState({ jornadas: response.data }))
             .catch(err => console.log(err))
-        console.log(this.state.jornadas)
+
     }
     // handleChangeInput = e => { this.setState({ [e.target.name]: e.target.value }) }
 
@@ -63,14 +63,14 @@ class Jornada extends Component {
                     <table className="table">
                         <tbody>
                             <tr>
-                                <th>Local</th>
+                                <th>Hometeam</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
-                                <th>Visitante</th>
-                                <th>Hora</th>
-                                <th>Estado</th>
-                                <th>Posesion</th>
+                                <th>Awayteam</th>
+                                <th>Time</th>
+                                <th>State</th>
+                                <th>Posession</th>
                             </tr>
                             {this.state.jornadas && this.state.jornadas.map((jornada, idx) => <Partido key={idx} {...jornada} />)}
                         </tbody>

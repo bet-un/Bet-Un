@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Ticker from 'react-ticker'
 import Services from '../services/league.services'
 import TickerBox from './Ticker-box'
+import { Spinner } from 'react-bootstrap'
 
 class TickerMove extends Component {
     constructor() {
@@ -28,7 +29,7 @@ class TickerMove extends Component {
                 )}
             </Ticker >
         ) : (
-                <span>Loading...</span>
+                <Spinner animation="border" variant="light" />
             )
     }
 }

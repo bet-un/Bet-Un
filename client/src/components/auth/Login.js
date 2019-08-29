@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import AuthServices from '../../services/auth.services'
-
 import { Form } from 'react-bootstrap'
-
+import warn from '../../warn-rojo.png'
 
 class Login extends Component {
 
@@ -42,7 +41,7 @@ class Login extends Component {
 
     render() {
 
-        if (this.state.error == false) {
+        if (this.state.error === false) {
 
             return (
                 <Form onSubmit={this.handleFormSubmit}>
@@ -78,7 +77,9 @@ class Login extends Component {
                             <Form.Label className="labels">Password</Form.Label>
                             <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
                         </div>
-                        <p className="warning-msg">User or password incorrect</p>
+                        <div className="warn">
+                            <img src={warn} alt="Warning" /><p className="warning-msg">Incorrect user or password</p>
+                        </div>
                         <button className="form-btn-err" type="submit">Login</button>
                     </Form.Group>
                 </Form>

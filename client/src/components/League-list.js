@@ -60,14 +60,14 @@ class LeagueList extends Component {
                         <tbody>
                             <tr>
                                 <th>Clasificación</th>
-                                <th>Equipo</th>
-                                <th>P.J.</th>
-                                <th>P.P.</th>
-                                <th>P.G.</th>
-                                <th>P.E.</th>
+                                <th>Team</th>
+                                <th>Matches</th>
+                                <th>Lost</th>
+                                <th>Win</th>
+                                <th>Draw</th>
                                 <th>G.F.</th>
-                                <th>G.C.</th>
-                                <th>Puntos</th>
+                                <th>G.A.</th>
+                                <th>Score</th>
                             </tr>
                             {this.state.leagues && this.state.leagues.map((league, idx) => <LeagueCard key={idx} {...league} />)}
                         </tbody>

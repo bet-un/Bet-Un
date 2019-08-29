@@ -63,6 +63,20 @@ authRoutes.post('/signup', (req, res, next) => {
     });
 });
 
+authRoutes.post('/card', (req, res, next) => {
+
+    const card = true
+
+    console.log(req.body)
+
+
+    User.findByIdAndUpdate(req.user._id, { card: card })
+        //console.log(user.id)
+        .then(newuser => res.status(200).json(newuser))
+        .catch(err => console.log('Error', err))
+})
+
+
 authRoutes.post('/login', (req, res, next) => {
     passport.authenticate('local', (err, theUser, failureDetails) => {
         if (err) {
@@ -108,7 +122,7 @@ authRoutes.get('/loggedin', (req, res, next) => {
 
 authRoutes.post('/update', (req, res, next) => {
     User.findByIdAndUpdate(user.id, { $push: { balance: dif } })
-    //console.log(user.id)
+        //console.log(user.id)
         .then(newuser => res.json(newuser))
         .catch(err => console.log('Error', err))
 })

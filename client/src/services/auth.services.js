@@ -5,7 +5,7 @@ export default class Services {
     constructor() {
 
         this.service = axios.create({
-            baseURL: 'http://localhost:5000/api/',
+            baseURL: `${process.env.REACT_APP_ROUTE}`,
             withCredentials: true
         })
     }
@@ -15,5 +15,9 @@ export default class Services {
     logout = () => this.service.post('logout')
     loggedin = () => this.service.get('loggedin')
     updateUser = () => this.service.post('update')
+    updateUseCard = (updateInfoCard) => {
+
+        return this.service.post('card', { card: true })
+    }
 
 }
