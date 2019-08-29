@@ -19,8 +19,10 @@ router.post('/postBet', (req, res) => {
     //console.log(req.body)
     //console.log("el req body trae lo de arriba")
     //const { title, overview, id, vote_average, poster_path } = req.body // no cogemos el valor de view para que salga el default de pendiente
-
-    Bet.create(req.body)
+    console.log(req.body, "soy foking reqbody de postbet")
+    const { local, visitante, cantidad, unoxdos, apuestas } = req.body
+    console.log(local, visitante, cantidad, unoxdos)
+    Bet.create({ local, visitante, cantidad, unoxdos, apuestas })
         .then(theNewBet => {
             //User.findByIdAndUpdate(req.user._id, { $push: { bets: theNewBet._id } }, { new: true })
 
