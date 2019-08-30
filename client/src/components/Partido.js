@@ -17,7 +17,6 @@ const Partido = ({ statistics, match_time, match_status, match_awayteam_name, ma
             <td>{match_status}</td>
             <td>{statistics[0].home}-{statistics[0].away}</td>
 
-
         </tr>
 
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Services from '../services/league.services'
 import AuthServices from '../services/auth.services'
-// import Historico from '../components/Historico-apuestas'
+import Historico from '../components/Historico-apuestas'
 import CardForm from './Card-form'
 import { Modal } from 'react-bootstrap'
 
@@ -127,12 +127,12 @@ class Perfil extends Component {
                     <div className="carousel">
                         <TickerMove />
                     </div>
-                    <div className="card-info">
+                    <div className="card-info marg-bot">
                         <button className="card-btn" onClick={this.handleModalCard}>Register your credit card</button><p>you have none yet!</p>
                     </div>
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-6 botones">
+                            <div className="col-4 botones tables apuModal timeM marg-bot">
                                 {/* <Link to={'/Historico'}><img src="../his.png" alt="historico" width="13%"></img></Link> */}
                                 <Link to={'/Apuesta'}><img src="../bet.png" alt="Bet" width="15%"></img></Link>
                                 <h5>User: {userName.username && userName.username}</h5>
