@@ -24,12 +24,13 @@ class Historico extends Component {
                     {
                         label: 'Bets',
                         data: [
-                            10,
+                            15,
                             25,
                             50,
                             42,
                             13,
-                            15
+                            25,
+                            17
                         ],
                         borderColor: [
                             'rgba(31,31,31, .52)',
@@ -37,7 +38,9 @@ class Historico extends Component {
                             'rgba(31,31,31, .52)',
                             'rgba(31,31,31, .52)',
                             'rgba(31,31,31, .52)',
-                            'rgba(31,31,31, .52)'
+                            'rgba(31,31,31, .52)',
+                            'rgba(31,31,31, .52)',
+
 
                         ],
                         backgroundColor: [
@@ -46,7 +49,8 @@ class Historico extends Component {
                             'rgba(45, 235, 17, .52)',
                             'rgba(45, 235, 17, .52)',
                             'rgba(45, 235, 17, .52)',
-                            'rgba(45, 235, 17, .52)'
+                            'rgba(45, 235, 17, .52)',
+                            'rgba(45, 235, 17, .52)',
 
                         ]
 

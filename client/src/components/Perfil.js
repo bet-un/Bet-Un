@@ -76,23 +76,21 @@ class Perfil extends Component {
                     </div>
                     <div className="container">
                         <div className="row">
-                            <div className="botones">
+                            <div className="col-4 botones">
+                                <Link to={'/Apuesta'}><img src="../bet.png" alt="Bet" width="20%"></img></Link>
                                 <table className="table tables">
                                     <tbody className="timeM">
-                                        <tr >
-                                            <th> <Link to={'/Apuesta'}><img src="../bet.png" alt="Bet" width="15%"></img></Link></th>
-                                            <th> <button className="add-other-card" onClick={this.handleModalCard}>Add other credit card</button></th>
-                                            <th><h6>Salary: {userName.balance && userName.balance[userName.balance.length - 1]}€</h6></th>
-                                        </tr>
+                                        <Link to="#" className="add-other-card" onClick={this.handleModalCard}>Add other credit card</Link>
+                                        <h5 className="apuModal">{userName.username}</h5>
+                                        <h6 className="apuModal">Salary: {userName.balance && userName.balance[userName.balance.length - 1]}€</h6>
                                     </tbody>
                                 </table>
 
                                 {/* <Link to={'/Historico'}><img src="../his.png" alt="historico" width="13%"></img></Link> */}
 
-
                             </div>
                             <div className="botones">
-                                {/* <Historico /> */}
+                                <Historico />
                             </div>
                             <table className="table tables">
                                 <tbody>

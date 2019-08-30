@@ -452,3 +452,9 @@ color:dimgray
   background: white url('./ih.JPG') no-repeat fixed center /cover;
   height: 100vh;
 }
+
+.chart2{
+  padding-left: 120px;
+  padding-top: 30px;
+  
+}

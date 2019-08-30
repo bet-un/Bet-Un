@@ -12,6 +12,27 @@ const User = require('../models/User')
 router.get('/getAllBets', (req, res) => {
     Bet.find()
         .then(allBets => res.json(allBets))
+    // if (!username || !password) {
+    //     res.status(400).json({ message: 'Rellena todos los campos' });
+    //     return;
+    // }
+
+    // if (match_hometeam_score < match_awayteam_name) {
+    //     res.status(400).json();
+    //     return;
+    // }
+
+    // if (match_hometeam_score == match_awayteam_name) {
+
+    //     res.status(400).json();
+    //     return;
+    // }
+
+    // if (match_hometeam_score > match_awayteam_name) {
+    //     res.status(400).json();
+    //     return;
+    // }
+        
         .catch(err => console.log('Error', err))
 })
 

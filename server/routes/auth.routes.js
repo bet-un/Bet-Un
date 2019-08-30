@@ -145,7 +145,7 @@ authRoutes.get('/misApuestas', (req, res, next) => {
     User.findById(req.user._id)
         .populate('bets')
         .then(bets => {
-            console.log(bets, "FOCKINS APIESTASAD ASDA")
+            //console.log(bets)
             //console.log(user)
             res.json(bets)
         })

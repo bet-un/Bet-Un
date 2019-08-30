@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Bar } from 'react-chartjs-2'
 // import {Pie} from 'react-chartjs-2'
 // import ApuestaCard from './Apuesta-card'
+import '../App.css';
+
 
 class Chart extends Component {
     constructor(props) {
@@ -21,7 +23,7 @@ class Chart extends Component {
 
     render() {
         return (
-            <div className="chart">
+            <div className="chart chart2">
                 <Bar
                     data={this.state.chartData}
                     options={{

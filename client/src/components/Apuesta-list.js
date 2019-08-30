@@ -50,26 +50,21 @@ class Apuesta extends Component {
 
     handleFormSubmit = (e, idx) => {
         e.preventDefault()
-        //console.log(this.state.user.balance[this.state.user.balance.length - 1])
-        //console.log(this.state.cantidad)
 
         const dif = parseFloat(this.state.user.balance[this.state.user.balance.length - 1]) - parseFloat(this.state.cantidad)
         const bet = this.state.apuesta
 
         const local = this.state.apuesta[idx].match_hometeam_name
         const visitante = this.state.apuesta[idx].match_awayteam_name
-        //console.log(bet, "salgo del componente")
 
         this.setState({ local, visitante }, () => {
 
             this.services.postBet(this.state)
                 .then(newBet => {
                     this.authServices.updateUser({ dif: dif, bet: newBet.data })
-                        //console.log(bets)
                         .then(newuser => {
                             this.setState({ balance: newuser.balance })
 
-                            // this.props.setTheUser(newuser)
                             this.forceUpdate()
                         })
                         .catch(err => console.log({ err }))
@@ -78,12 +73,6 @@ class Apuesta extends Component {
 
         })
 
-        // this.services.postBet(this.state)
-
-        // console.log(this.state.user.balance[this.state.user.balance.length - 1])
-        // console.log(this.state.cantidad)
-
-        // console.log(dif)
 
     }
 
@@ -97,11 +86,9 @@ class Apuesta extends Component {
     }
 
     render() {
-        //const salary = this.state.cantidad
+      
         const userName = this.state.user
-        //let newSalary = (userName.balance[userName.balance.length - 1]) - salary
-        //console.log(salary)
-        // console.log(userName)
+     
         return (
             <>
                 <div className="carousel marg-bot">
@@ -157,9 +144,9 @@ class Apuesta extends Component {
 
                                                     </div>
 
-                                                    <Form.Group controlId="formGridOdds">
-                                                        <Form.Label htmlFor="input-apuestas"></Form.Label>
-                                                        <Form.Control as="select" name="apuestas" id="input-apuestas" value={this.state.apuestas} onChange={this.handleInputChange}>
+                                                    <Form.Group >
+                                                        <Form.Label ></Form.Label>
+                                                        <Form.Control as="select" name="apuestas"  value={this.state.apuestas} onChange={this.handleInputChange}>
                                                             <option>Choose...</option>
                                                             <option value={apuesta.prob_HW}>1 => {apuesta.prob_HW}</option>
                                                             <option value={apuesta.prob_D}>X => {apuesta.prob_D}</option>
@@ -167,8 +154,8 @@ class Apuesta extends Component {
                                                         </Form.Control>
                                                     </Form.Group>
                                                     <div className="form-group">
-                                                        <Form.Label htmlFor="input-cantidad"></Form.Label>
-                                                        <Form.Control name="cantidad" type="number" id="input-cantidad" value={this.state.cantidad} placeholder="Bet amount" onChange={this.handleInputChange} />
+                                                        <Form.Label ></Form.Label>
+                                                        <Form.Control name="cantidad" type="number" value={this.state.cantidad} placeholder="Bet amount" onChange={this.handleInputChange} />
 
                                                     </div>
                                                     <div className="d-flex flex-column marg-top">
