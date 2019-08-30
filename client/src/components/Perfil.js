@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Services from '../services/league.services'
 import AuthServices from '../services/auth.services'
-import Historico from '../components/Historico-apuestas'
+// import Historico from '../components/Historico-apuestas'
 import CardForm from './Card-form'
 import { Modal } from 'react-bootstrap'
-//import Historico from '../components/Historico-apuestas'
 
 
-import Paypal from './pay-pal'
+
+// import Paypal from './pay-pal'
 import TickerMove from './Ticker-move'
 import BetCard from './Bet-card'
 
@@ -48,7 +48,7 @@ class Perfil extends Component {
     showList = () => {
         this.authServices.myBets()
             .then(response => {
-                console.log(response.data, "HOLA SOY TU SALVACION")
+
                 this.setState({ bets: response.data.bets })
 
             })
@@ -102,7 +102,7 @@ class Perfil extends Component {
                                         <th><p>Odds</p></th>
                                     </tr>
                                     {this.state.bets && this.state.bets.map(bets => {
-                                        console.log(bets)
+
                                         return <BetCard key={bets._id} {...bets} />
                                     })}
                                 </tbody>
@@ -152,7 +152,7 @@ class Perfil extends Component {
                                     </tr>
 
                                     {this.state.bets && this.state.bets.map(bets => {
-                                        console.log(bets, "asdas")
+
                                         return <BetCard key={bets._id} {...bets} />
                                     })}
                                 </tbody>
