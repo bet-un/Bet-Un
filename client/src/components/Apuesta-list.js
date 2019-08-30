@@ -52,7 +52,7 @@ class Apuesta extends Component {
         e.preventDefault()
 
         const dif = parseFloat(this.state.user.balance[this.state.user.balance.length - 1]) - parseFloat(this.state.cantidad)
-        const bet = this.state.apuesta
+
 
         const local = this.state.apuesta[idx].match_hometeam_name
         const visitante = this.state.apuesta[idx].match_awayteam_name
@@ -73,11 +73,10 @@ class Apuesta extends Component {
 
         })
 
-
     }
 
 
-    //Handle del select
+
     handleChangeInput = e => {
         e.preventDefault()
         this.services.getPredictions(e.target.value)
@@ -86,9 +85,9 @@ class Apuesta extends Component {
     }
 
     render() {
-      
+
         const userName = this.state.user
-     
+
         return (
             <>
                 <div className="carousel marg-bot">
@@ -138,7 +137,7 @@ class Apuesta extends Component {
                                                 <h4 className="center apuModal">Bet</h4>
                                                 <h5 className="apuModal">Salary: {userName.balance && userName.balance[userName.balance.length - 1]}€</h5>
 
-                                                <Form onSubmit={(e) => this.handleFormSubmit(e, idx)}>
+                                                <Form key={idx} onSubmit={(e) => this.handleFormSubmit(e, idx)}>
                                                     <div className="cont-bets marg-top-bot">
                                                         <div className="bets">1</div><div className="bets">X</div><div className="bets">2</div>
 
@@ -146,7 +145,7 @@ class Apuesta extends Component {
 
                                                     <Form.Group >
                                                         <Form.Label ></Form.Label>
-                                                        <Form.Control as="select" name="apuestas"  value={this.state.apuestas} onChange={this.handleInputChange}>
+                                                        <Form.Control as="select" name="apuestas" value={this.state.apuestas} onChange={this.handleInputChange}>
                                                             <option>Choose...</option>
                                                             <option value={apuesta.prob_HW}>1 => {apuesta.prob_HW}</option>
                                                             <option value={apuesta.prob_D}>X => {apuesta.prob_D}</option>

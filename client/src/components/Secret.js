@@ -5,7 +5,7 @@ const Secret = () => {
     return (
 
         <section className="bg clean">
-            <h1>Hola</h1>
+            <h1 className="secret-h">MUCHISIMAS GRACIAS A TODOS!</h1>
         </section>
     )
 }
