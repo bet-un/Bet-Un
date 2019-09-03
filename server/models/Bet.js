@@ -6,7 +6,10 @@ const betSchema = new Schema({
     cantidad: Number,
     unoxdos: String,
     local: String,
-    visitante: String
+    visitante: String,
+    uno: Number,
+    dos: Number,
+    equis: Number
 }, { timestamps: true })
 
 const Bet = mongoose.model('Bet', betSchema);

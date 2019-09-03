@@ -96,8 +96,9 @@ class Perfil extends Component {
                                 <tbody>
                                     <tr className="timeM">
                                         <th><p>Match</p></th>
+                                        <th><p>1 X 2</p></th>
                                         <th><p>Bet amount</p></th>
-                                        <th><p>Odds</p></th>
+                                        <th><p>Odds(1-X-2)</p></th>
                                     </tr>
                                     {this.state.bets && this.state.bets.map(bets => {
 

@@ -50,22 +50,36 @@ class Apuesta extends Component {
 
     handleFormSubmit = (e, idx) => {
         e.preventDefault()
-
+        // if (this.state.apuestas && this.state.apuestas) {
+        //     if (this.state.apuestas == this.state.apuesta.prob_HW) {
+        //         this.state.unoxdos = "1"
+        //     } else if (this.state.apuestas == this.state.apuesta.prob_AW) {
+        //         this.state.unoxdos = "2"
+        //     } else{
+        //         this.state.unoxdos = "X"
+        //     }
+        // }
+        // (this.state.apuestas && this.state.apuestas)
         const dif = parseFloat(this.state.user.balance[this.state.user.balance.length - 1]) - parseFloat(this.state.cantidad)
-
-
+        //const uxd = document.getElementById("unoxdos").textContent
         const local = this.state.apuesta[idx].match_hometeam_name
         const visitante = this.state.apuesta[idx].match_awayteam_name
-
-        this.setState({ local, visitante }, () => {
+        const uno = this.state.apuesta[idx].prob_HW
+        const dos = this.state.apuesta[idx].prob_AW
+        const equis = this.state.apuesta[idx].prob_D
+        //const udx = this.state.unoxdos
+        //console.log(udx)
+        this.setState({ local, visitante, uno, dos, equis }, () => {
 
             this.services.postBet(this.state)
+
                 .then(newBet => {
                     this.authServices.updateUser({ dif: dif, bet: newBet.data })
                         .then(newuser => {
                             this.setState({ balance: newuser.balance })
 
                             this.forceUpdate()
+
                         })
                         .catch(err => console.log({ err }))
                 })
@@ -87,7 +101,7 @@ class Apuesta extends Component {
     render() {
 
         const userName = this.state.user
-
+        // const uxd = document.getElementById("unoxdos").textContent
         return (
             <>
                 <div className="carousel marg-bot">
@@ -121,9 +135,9 @@ class Apuesta extends Component {
                                     <th><p>Time</p></th>
                                     <th><p>Date</p></th>
                                     <th><p>State</p></th>
-                                    <th><p>Prob.V.H.</p></th>
-                                    <th><p>Prob.V.A.</p></th>
-                                    <th><p>Prob.D.</p></th>
+                                    <th><p>1</p></th>
+                                    <th><p>X</p></th>
+                                    <th><p>2</p></th>
                                 </tr>
 
                                 {this.state.apuesta && this.state.apuesta.map((apuesta, idx) => {
@@ -145,12 +159,14 @@ class Apuesta extends Component {
 
                                                     <Form.Group >
                                                         <Form.Label ></Form.Label>
-                                                        <Form.Control as="select" name="apuestas" value={this.state.apuestas} onChange={this.handleInputChange}>
+                                                        <Form.Control as="select" id="unoxdos" name="unoxdos" value={this.state.unoxdos} onChange={this.handleInputChange}>
                                                             <option>Choose...</option>
-                                                            <option value={apuesta.prob_HW}>1 => {apuesta.prob_HW}</option>
-                                                            <option value={apuesta.prob_D}>X => {apuesta.prob_D}</option>
-                                                            <option value={apuesta.prob_AW}>2 => {apuesta.prob_AW}</option>
+                                                            <option value="1">1 => {apuesta.prob_HW}</option>
+                                                            <option value="X">X => {apuesta.prob_D}</option>
+                                                            <option value="2">2 => {apuesta.prob_AW}</option>
                                                         </Form.Control>
+
+
                                                     </Form.Group>
                                                     <div className="form-group">
                                                         <Form.Label ></Form.Label>
