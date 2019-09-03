@@ -66,7 +66,6 @@ class Perfil extends Component {
     render() {
 
         const userName = this.state.user
-
         if (this.state.user.card) {
 
             return (

@@ -77,9 +77,11 @@ class ClubList extends Component {
                     </form>
                     <div className="row">
                         {this.state.copy && this.state.clubs.map((club, idx) => <div key={idx} className="col-md-3">
-                            <div key={idx} onClick={(e) => this.handleModalModal(e, idx)} className="marg border pointer">
-                                <p>{club.team_name}</p>
-                                <img className="img-marg" src={club.team_badge} alt={club.team_name}></img>
+                            <div key={idx} onClick={(e) => this.handleModalModal(e, idx)} className="marg club-box pointer">
+                                <div className='club-hov'>
+                                    <img className="img-marg" src={club.team_badge} alt={club.team_name}></img>
+                                    <p className="club-names">{club.team_name}</p>
+                                </div>
 
 
                                 <Modal size="lg" show={this.state.showModal[idx]} onHide={(e) => this.handleModalModal(e, idx)}>

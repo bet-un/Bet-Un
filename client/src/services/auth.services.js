@@ -21,7 +21,7 @@ export default class Services {
     }
     myBets = () => this.service.get('misApuestas')
 
-    updateUseCard = (updateInfoCard) => {
+    updateUseCard = () => {
 
         return this.service.post('card', { card: true })
     }

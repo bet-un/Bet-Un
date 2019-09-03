@@ -56,8 +56,11 @@ body{
   text-align: center;
   margin: 10px 5px;
   flex: 23%;
+}
 
-  
+.club-names{
+  font-size: 1.1em;
+  font-weight: bold;
 }
 
 /* NavBar and Links */
@@ -149,7 +152,6 @@ h5{
   font-weight: bold;
   background-color: #2DEB11;
   border: none;
-  border-radius: 10%;
 }
 .form-btn-err{
   margin: 20px auto 10px auto;
@@ -159,12 +161,10 @@ h5{
   font-weight: bold;
   background-color: #2DEB11;
   border: none;
-  border-radius: 10%;
 }
 
 .register-btn{
   background-color: #2DEB11;
-  border-radius: 10%;
   border: none;
   color: white;
   font-size: .7em;
@@ -267,15 +267,22 @@ nav button{
   color: white
 }
 
-
-
-.border{
-  border: 3px solid #2DEB11!important;
+.club-box{
+  /* border: 3px solid #2DEB11!important; */
   text-align: center;
-  border-radius: 25%;
+  /* border-radius: 25%; */
   color: white;
   font-size: .8em;
-  background-color: darkgrey;
+  /* background-color: darkgrey; */
+  border: none!important;
+}
+
+.club-hov{
+  transition: all .1s ease-in-out
+}
+
+.club-hov:hover{
+  transform: scale(1.25)
 }
 
 .tables{

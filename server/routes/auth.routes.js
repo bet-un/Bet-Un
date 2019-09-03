@@ -64,9 +64,9 @@ authRoutes.post('/signup', (req, res, next) => {
 });
 
 authRoutes.post('/card', (req, res, next) => {
-    const card = true
+
     //console.log(req.body)
-    User.findByIdAndUpdate(req.user._id, { card: card })
+    User.findByIdAndUpdate(req.user._id, { card: true })
         //console.log(user.id)
         .then(newuser => res.status(200).json(newuser))
         .catch(err => console.log('Error', err))
