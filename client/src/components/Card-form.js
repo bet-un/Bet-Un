@@ -9,7 +9,7 @@ class CardForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            card: false
         }
         this.authServices = new AuthServices()
     }
@@ -24,14 +24,14 @@ class CardForm extends Component {
         const cardState = !this.state.card
         this.authServices.updateUseCard(cardState)
             .then(newuser => {
-                console.log(this.props)
                 this.props.setUser(newuser)
+                this.setState({ card: cardState })
                 // this.forceUpdate()
 
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err, 'primer catch'))
             .catch(err => {
-                this.setState(console.log(err))
+                this.setState(console.log(err, 'segundo catch'))
             })
     }
 
@@ -58,9 +58,9 @@ class CardForm extends Component {
                         <Form.Label className="labels">CV</Form.Label>
                         <Form.Control name="numbersecret" type="password" onChange={this.handleInputChange} />
                     </div>
-                    <button className="form-btn" type="submit">Enter card</button>
+                    <button className="form-btn" type="submit"> Enter card</button>
                 </Form.Group>
-            </Form>
+            </Form >
 
         )
     }

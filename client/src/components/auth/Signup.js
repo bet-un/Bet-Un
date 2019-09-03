@@ -42,80 +42,43 @@ class Signup extends Component {
 
     render() {
 
-        if (!this.state.error) {
 
-            return (
 
-                <Form onSubmit={this.handleFormSubmit}>
-                    <Form.Group controlId="formBasicUser">
-                        <div className="signup-form">
-                            <Form.Label className="labels">Username</Form.Label>
-                            <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
-                        </div>
-                    </Form.Group>
+        return (
 
-                    <Form.Group controlId="formBasicPassword">
-                        <div className="signup-form">
-                            <Form.Label className="labels">Password</Form.Label>
-                            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
-                        </div>
-                        <button className="form-btn" type="submit">Register</button>
-                    </Form.Group>
+            <Form onSubmit={this.handleFormSubmit}>
+                <Form.Group controlId="formBasicUser">
+                    <div className="signup-form">
+                        <Form.Label className="labels">Username</Form.Label>
+                        <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
+                    </div>
+                </Form.Group>
 
-                </Form>
-            )
-        } else if (this.state.password.length <= 7) {
+                <Form.Group controlId="formBasicPassword">
+                    <div className="signup-form">
+                        <Form.Label className="labels">Password</Form.Label>
+                        <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
+                    </div>
 
-            return (
-
-                <Form onSubmit={this.handleFormSubmit}>
-                    <Form.Group controlId="formBasicUser">
-                        <div className="signup-form">
-                            <Form.Label className="labels">Username</Form.Label>
-                            <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
-                        </div>
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
-                        <div className="signup-form">
-                            <Form.Label className="labels">Password</Form.Label>
-                            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
-                        </div>
-                        <div className="warn">
-                            <img src={warn} alt="Warning" /><p className="warning-msg">Password must contain at least 8 characters</p>
-                        </div>
-                        <button className="form-btn-err" type="submit">Register</button>
-                    </Form.Group>
-
-                </Form>
-            )
-
-        }
-        else {
-            return (
-
-                <Form onSubmit={this.handleFormSubmit}>
-                    <Form.Group controlId="formBasicUser">
-                        <div className="signup-form">
-                            <Form.Label className="labels">Username</Form.Label>
-                            <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
-                        </div>
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
-                        <div className="signup-form">
-                            <Form.Label className="labels">Password</Form.Label>
-                            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
-                        </div>
+                    {this.state.error ?
                         <div className="warn">
                             <img src={warn} alt="Warning" /><p className="warning-msg">User or password not available</p>
                         </div>
-                        <button className="form-btn-err" type="submit">Register</button>
-                    </Form.Group>
+                        : null
+                    }
 
-                </Form>
-            )
-        }
+                    {this.state.password.length <= 7 && this.state.password.length > 0 ?
+                        <div className="warn">
+                            <img src={warn} alt="Warning" /><p className="warning-msg">Password must contain at least 8 characters</p>
+                        </div> : null
+                    }
+
+                    <button className="form-btn-err" type="submit">Register</button>
+                </Form.Group>
+
+            </Form>
+        )
+
 
     }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Services from '../services/league.services'
 import AuthServices from '../services/auth.services'
-// import Historico from '../components/Historico-apuestas'
+import Historico from '../components/Historico-apuestas'
 import CardForm from './Card-form'
 import { Modal } from 'react-bootstrap'
 
@@ -66,7 +66,6 @@ class Perfil extends Component {
     render() {
 
         const userName = this.state.user
-
         if (this.state.user.card) {
 
             return (

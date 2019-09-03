@@ -41,53 +41,33 @@ class Login extends Component {
 
     render() {
 
-        if (this.state.error === false) {
+        return (
+            <Form onSubmit={this.handleFormSubmit}>
+                <Form.Group controlId="formBasicUser">
+                    <div className="signup-form">
+                        <Form.Label className="labels">Username</Form.Label>
+                        <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
+                    </div>
+                </Form.Group>
 
-            return (
-                <Form onSubmit={this.handleFormSubmit}>
-                    <Form.Group controlId="formBasicUser">
-                        <div className="signup-form">
-                            <Form.Label className="labels">Username</Form.Label>
-                            <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
-                        </div>
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
-                        <div className="signup-form">
-                            <Form.Label className="labels">Password</Form.Label>
-                            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
-                        </div>
-                        <button className="form-btn" type="submit">Login</button>
-                    </Form.Group>
-                </Form>
-
-            )
-        } else {
-            return (
-                <Form onSubmit={this.handleFormSubmit}>
-                    <Form.Group controlId="formBasicUser">
-                        <div className="signup-form">
-                            <Form.Label className="labels">Username</Form.Label>
-                            <Form.Control name="username" type="text" value={this.state.username} onChange={this.handleInputChange} />
-                        </div>
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
-                        <div className="signup-form">
-                            <Form.Label className="labels">Password</Form.Label>
-                            <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
-                        </div>
+                <Form.Group controlId="formBasicPassword">
+                    <div className="signup-form">
+                        <Form.Label className="labels">Password</Form.Label>
+                        <Form.Control name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
+                    </div>
+                    {this.state.error ?
                         <div className="warn">
                             <img src={warn} alt="Warning" /><p className="warning-msg">Incorrect user or password</p>
-                        </div>
-                        <button className="form-btn-err" type="submit">Login</button>
-                    </Form.Group>
-                </Form>
+                        </div> : null
+                    }
+                    <button className="form-btn-err" type="submit">Login</button>
+                </Form.Group>
+            </Form>
 
-            )
-        }
-
+        )
     }
+
 }
+
 
 export default Login
