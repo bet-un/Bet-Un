@@ -20,4 +20,9 @@ export default class Services {
     getBets = () => this.service.get('getAllBets')
     postBet = theNewBet => this.service.post('postBet', theNewBet)
 
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> 4970c0d0b0ace54cbcb11cb0f5cec2c58decca8b
